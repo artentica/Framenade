@@ -13,7 +13,7 @@
 
 			
 			dispatch('/login','login');
-
+			dispatch('/documents/:email/:mdp', 'renseignement');
 
 
 			run();
