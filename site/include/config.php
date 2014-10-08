@@ -9,7 +9,7 @@ define ('dbhost', 'localhost');
 ##
 ##
 ##  Nom de la base de donnée
-define ('dbname', 'gato');
+define ('dbname', 'framenade');
 ##
 ##
 ##  Utilisateur de la base de donnée

@@ -14,7 +14,11 @@
 		}
 		#loading
 		{
-			display: none;
+			position: fixed;
+			box-shadow: 0px 0px 2000px 100px rgba(0,0,0,0.5);
+			border-radius: 200%;
+			top: 35%;
+			left: 45%;
 		}
 		</style>
 	</head>
@@ -40,7 +44,7 @@
 			<hr>	
 			<div class="col-sm-12" id="result_test"></div>
 		</div>
-		<img id="loading" src="loading.gif">
+		<img id="loading" src="../Images/loading.gif">
 	</body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript">
