@@ -23,7 +23,7 @@
 			return true;
 		}
 
-		clearDir( 'install' );
+		//clearDir( 'install' );	//A ENLEVER POUR RENDRE
 		echo('NETTOYAGE TERMINE');
 	}
 ?>
