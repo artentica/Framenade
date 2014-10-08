@@ -11,6 +11,7 @@
 
 			dispatch('/clean_install', 'clean_install');
 			
+			dispatch('/login','login');
 
 			run();
 		?>
