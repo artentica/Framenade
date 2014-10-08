@@ -1,15 +1,11 @@
 <?php
-		$host      = dbhost;
-    	$user      = dbuser;
-    	$pass      = dbpass;
-    	$dbname    = dbname;
-
-    	$reponse   = array();
+		require_once('/include/config.php');
+    	$reponse = array();
 
 		function connect()
 		{
 			// Set DSN
-	        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+	        $dsn = 'mysql:host=' . dbhost . ';dbname=' . dbname;
 	        // Set options
 	        $options = array(
 	            PDO::ATTR_PERSISTENT    => true,
@@ -17,7 +13,7 @@
 	        );
 	        // Create a new PDO instanace
 	        try{
-	            $db = new PDO($dsn, $this->user, $this->pass, $options);
+	            $GLOBALS['db'] = new PDO($dsn, dbuser, dbpass, $options);
 	        }
 	        // Catch any errors
 	        catch(PDOException $e){
@@ -28,14 +24,14 @@
 		function query( $str )
 		{
 			connect();
-	    	$temp = $db->query( $str );
-	    	$this->reponse = $temp->fetchAll();
-	    	$temp->closeCursor();
+	    	$temp = $GLOBALS['db']->query( $str );
+	    	$reponse = $temp->fetchAll();
 	    	return $reponse;
 		}
-		function exec( $str )
+		function insert( $str )
 		{
 			connect();
-	    	return $db->exec( $str );
+	    	$temp = $GLOBALS['db']->exec( $str );
+	    	return $temp;
 		}
 ?>

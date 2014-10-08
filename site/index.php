@@ -3,10 +3,6 @@
 
 	</head>
 	<body>
-		<?php
-			$test = query('SELECT * FROM data');
-			print_r($test);
-		?>
 		PAGE D ACCUEIl
 
 		<?php
