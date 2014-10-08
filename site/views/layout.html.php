@@ -5,8 +5,11 @@
 	<title><?php echo h($page_title) ?></title>
 </head>
 <body>
-	<?php if(!empty($header)): ?>
-		<?php echo $header; ?>
-	<?php endif; ?>
+	<?php if(!empty($header)):
+		echo $header;
+	endif; ?>
+	<div class="body">
+		<?php echo $body;?>
+	</div>
 </body>
 </html>
