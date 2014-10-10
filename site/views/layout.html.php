@@ -3,6 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo h($page_title) ?></title>
+	<?php if(!empty($css)):
+		echo $css;
+	endif;
+	?>
 </head>
 <body>
 	<?php if(!empty($header)):
