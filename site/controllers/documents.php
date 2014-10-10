@@ -4,7 +4,7 @@
 
 		if( $_SESSION['connect'] == false )
 		{
-			header('location:../index.php');
+			header('Location:../index.php');
 		}
 		include('../include/bdd.php');
 

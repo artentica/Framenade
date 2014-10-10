@@ -13,10 +13,10 @@
 
 			if( $_SESSION['connect'] )
 			{
-				header("location:../index.php/documents");
+				header("Location:../index.php/documents");
 			}
 		}
 		
-		header('location:../index.php');
+		header('Location:../index.php');
 	}
 ?>
