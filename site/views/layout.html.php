@@ -15,5 +15,9 @@
 	<div class="body">
 		<?php echo $body;?>
 	</div>
+	<?php if(!empty($footer)):
+		echo $footer;
+	endif;
+	?>
 </body>
 </html>
