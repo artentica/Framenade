@@ -2,10 +2,10 @@
 	function renseignement()
 	{
 
-		$mail = $_POST['mail'];
-		$mdp  = $_POST['mdp'];
-
-		
+		if( !$_SESSION['connect'])
+		{
+			header('location:index.php/login');
+		}
 
 		set ('page_title', 'Renseignements');
 		return html ('renseignement.html.php', 'layout.html.php');
