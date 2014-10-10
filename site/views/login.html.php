@@ -12,9 +12,11 @@
 <?php content_for('body'); ?>
 <form method="post" action="index.php/verif_user">
    <p>
-       <label for="mail">Courriel</label> : <input type="email" name="mail" id="mail" /><br/>
-       <label for="password">Password</label> : <input type="password" name="password" id="password" />
-       <input type="submit" value="Envoyer" />
+       <label for="mail" class="monLabel">Courriel</label> : <input type="email" name="mail" id="mail" />
+       <br/><p class="texte">(Cette adresse électronique sera votre identifiant)</p>
+       <label for="password" class="monLabel">Password</label> : <input type="password" name="password" id="password" />
+       <br/><p class="texte">(Le mot de passe qui vous a été envoyé par courrier)</p>
+       <input type="submit" value="Valider" />
    </p>
 </form>
 <?php end_content_for(); ?>
