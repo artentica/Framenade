@@ -3,6 +3,7 @@ body{
 }
 
 .titre {
+	margin-top: 75px;
     font-size: 24px;
     font-family: Geneva, Arial, Helvetica, san-serif;
     font-weight: bold;
@@ -27,5 +28,18 @@ form{
 }
 
 .body{
-	margin-top: 100px;
+	margin-top: 75px;
+}
+
+.button{
+	color: white;
+	background-color: #666699;
+	border-bottom: thin solid #222244;
+	border-right:  thin solid #222244;
+	border-top: thin solid #9999cc;
+	border-left: thin solid #9999cc;
+	font-size: 11px;
+	font-family: Geneva,Helvetica,sans-serif;
+	font-weight: normal;
+	cursor: pointer;
 }
