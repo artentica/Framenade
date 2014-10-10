@@ -1,3 +1,17 @@
+.red
+{
+	color: #B72321;
+}
+#header
+{
+	padding-top: 30px;
+}
+h3
+{
+	text-align: center;
+	color: #B72321;
+	font-weight: bold;
+}
 body
 {
 	background-color: #c5efff;
@@ -9,13 +23,20 @@ body > img
 p{
 	text-align: center;
 }
+#files
+{
+	border: 1px solid;
+	min-height: 700px;
+}
 form
 {
 	color: #000090;
+	border: 1px solid grey;
 }
 legend
 {
 	padding-top: 40px;
+	padding-left: 10px;
 	text-decoration: underline;
 	color: #000090;
 }

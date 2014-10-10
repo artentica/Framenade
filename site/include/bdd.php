@@ -1,5 +1,5 @@
 <?php
-		require_once('/include/config.php');
+		require_once('config.php');
     	$reponse = array();
 
 		function connect()
@@ -21,14 +21,14 @@
 	        }
 	    }
 
-		function query( $str )
+		function DBQuery( $str )
 		{
 			connect();
 	    	$temp = $GLOBALS['db']->query( $str );
 	    	$reponse = $temp->fetchAll();
 	    	return $reponse;
 		}
-		function insert( $str )
+		function DBInsert( $str )
 		{
 			connect();
 	    	$temp = $GLOBALS['db']->exec( $str );

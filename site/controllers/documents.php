@@ -9,17 +9,17 @@
 
 		set ('page_title', 'Renseignements');
 
-		$users = query("SELECT * FROM data WHERE courriel='". $_SESSION['mail'] ."'");
+		$users = DBQuery("SELECT * FROM data WHERE courriel='". $_SESSION['mail'] ."'");
 
 		if( !empty($users[0]) )
 			set( 'user', $users[0] );
 		else{
 			set( 'user', array(
-			    "nom_fils"=>"",
-			    "prenom_fils"=>"",
-			    "tel_mobile"=>"",
-			    "courriel"=>"",
-			    "identifiant"=>""
+			    "nom_fils"		=>"",
+			    "prenom_fils"	=>"",
+			    "tel_mobile"	=>"",
+			    "courriel"		=>"",
+			    "identifiant"	=>""
 			));
 		}
 
