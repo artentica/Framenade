@@ -1,5 +1,4 @@
 <?php
-
 	//TEMPORAIRE
 	define('MOT_DE_PASSE', 'motdepasse');
 	
@@ -14,16 +13,10 @@
 
 			if( $_SESSION['connect'] )
 			{
-				header("location:index.php/documents");
-			}
-			else
-			{
-				header("location:index.php/login");
+				header("location:../index.php/documents");
 			}
 		}
-		else
-		{
-			header('location:index.php/login');
-		}
+		
+		header('location:../index.php');
 	}
 ?>
