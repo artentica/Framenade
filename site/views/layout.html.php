@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo h($page_title) ?></title>
-	<?php if(!empty($css)):
-		echo $css;
+	<?php if(!empty($link)):
+		echo $link;
 	endif;
 	?>
 </head>

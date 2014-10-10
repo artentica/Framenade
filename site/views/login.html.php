@@ -1,4 +1,4 @@
-<?php content_for('css')?>
+<?php content_for('link')?>
 <link rel=stylesheet href="css/default.css" type="text/css" />
 <?php end_content_for();?>
 
