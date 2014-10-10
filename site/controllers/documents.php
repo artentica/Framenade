@@ -9,8 +9,22 @@
 
 		set ('page_title', 'Renseignements');
 
-		set( 'user', query("SELECT * FROM data WHERE courriel='". $_SESSION['mail'] ."'") );
+		$users = DBQuery("SELECT * FROM data WHERE courriel='". $_SESSION['mail'] ."'");
 
+		if( !empty($users[0]) )
+			set( 'user', $users[0] );
+		else{
+			set( 'user', array(
+			    "nom_fils"		=>"",
+			    "prenom_fils"	=>"",
+			    "tel_mobile"	=>"",
+			    "courriel"		=>"",
+			    "identifiant"	=>""
+			));
+		}
+
+		$dates = ( !empty($users[0]) ) ? strtotime( $users[0]['date'] ) : "";
+		set('date', date( 'Y-m-d', $dates ) );
 		return html ('renseignement.html.php', 'layout.html.php');
 	}
 ?>
