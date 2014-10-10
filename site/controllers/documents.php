@@ -1,7 +1,6 @@
 <?php
 	function renseignement()
 	{
-
 		if( $_SESSION['connect'] == false )
 		{
 			header('Location:../index.php');

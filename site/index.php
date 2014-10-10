@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once( 'include/limonade.php' );
 	require_once( 'include/bdd.php');
 
@@ -8,9 +9,8 @@
 
 	
 	dispatch('/','login');
-	dispatch('/verif_user', 'verification_user');
+	dispatch('/verifUser', 'verificationUser');
 	dispatch('/documents', 'renseignement');
-
 
 	run();
 ?>
