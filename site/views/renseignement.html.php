@@ -89,9 +89,9 @@
 	<script type="text/javascript">
 	jQuery(document).ready(function($) {
 
-		var sel = $('#SelectPromo');
-		var conteneur = $('#conteneur');
-		$.ajax(
+		var sel 		= $('#SelectPromo');
+		var conteneur 	= $('#conteneur');
+		$.ajax( // chargment des categories ( apl bdd lent donc transvasé coté client )
 		{
 			url: '../include/fonction.php',
 			dataType: 'json',
@@ -100,8 +100,6 @@
 		.done(function( data ) 
 		{
 			console.log("success promo changed");
-			conteneur.text(data);
-
 			$.each( data, function(key, value) 
 			{
 			    sel.append('<option value=' + value + '>' + value + '</option>');
@@ -116,6 +114,22 @@
 		sel.change(function(event) {
 			
 			console.log('changement de promo ' + sel.val() );
+			$.ajax({
+				url: '../include/fonction.php',
+				type: 'GET',
+				dataType: 'json',
+				data: {param1: 'value1'},
+			})
+			.done(function() {
+				console.log("success");
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+			
 		});
 	});
 	</script>
