@@ -13,8 +13,9 @@
 			dispatch('/clean_install', 'clean_install');
 
 			
-			dispatch('/login','login');
-			dispatch('/documents/:email/:mdp', 'renseignement');
+			dispatch('/','login');
+			dispatch('/verif_user', 'verification_user');
+			dispatch('/documents', 'renseignement');
 
 
 			run();
