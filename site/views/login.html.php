@@ -1,5 +1,5 @@
 <?php content_for('link')?>
-<link rel=stylesheet href="css/default.css" type="text/css" />
+<link rel=stylesheet href="css/defaultLogin.css" type="text/css" />
 <?php end_content_for();?>
 
 <?php content_for('header'); ?>

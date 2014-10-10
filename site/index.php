@@ -11,6 +11,7 @@
 	dispatch('/','login');
 	dispatch('/verifUser', 'verificationUser');
 	dispatch('/documents', 'renseignement');
+	dispatch('/administration_accueil','adm_accueil');
 
 	run();
 ?>
