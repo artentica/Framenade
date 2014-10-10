@@ -2,7 +2,7 @@
 	function renseignement()
 	{
 
-		$mail = $_POST['mail']
+		$mail = $_POST['mail'];
 		$mdp  = $_POST['mdp'];
 
 		
