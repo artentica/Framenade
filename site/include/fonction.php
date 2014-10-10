@@ -7,7 +7,7 @@
 			echo DBListe_promo();
 			break;
 		case 'files':
-			echo DBListe_promo($_GET['promo']);
+			echo DBListe_files($_GET['promo']);
 			break;
 		default:
 			# code...
@@ -25,13 +25,13 @@
 
 		return json_encode( $reponse );
 	}
-	function DBListe_promo( $promo )
+	function DBListe_files( $promo )
 	{
 		$reponse = array();
 		connect();
 		$temp = DBQuery("SELECT * from document where promo='$promo'");
 		foreach ($temp as $key => $value) {
-			array_push( $reponse, $value[0]);
+			array_push( $reponse, $value);
 		}
 
 		return json_encode( $reponse );

@@ -80,8 +80,8 @@
 		      		<option value="" selected disabled>Séléctionnez une promo</option>
 			    </select>
 			</div>
-			<div id="conteneur">
-			</div>
+			<table id="conteneur">
+			</table>
 		</div>
 	</div>
 	<script type="text/javascript" src="../jquery.min.js"></script>
@@ -107,8 +107,7 @@
 		})
 		.fail(function( jqXHR, textStatus ) 
 		{
-			console.log("error promo not changed: " + textStatus);
-			alert(jqXHR);
+			alert("Erreur de chargement de données: " + textStatus);
 		});
 
 		sel.change(function(event) {
@@ -118,16 +117,22 @@
 				url: '../include/fonction.php',
 				type: 'GET',
 				dataType: 'json',
-				data: {param1: 'value1'},
+				data: 
+				{
+					search: 'files',
+					promo: sel.val()
+				},
 			})
-			.done(function() {
+			.done(function( data) {
 				console.log("success");
+				conteneur.text(data);
+				$.each( data, function(key, value) 
+				{
+			    	conteneur.append('<tr><td>'+ value['libelle'] +'</td><td><a href="'+ value['fichier'] +'">A</a></td></tr>');
+				});
 			})
-			.fail(function() {
-				console.log("error");
-			})
-			.always(function() {
-				console.log("complete");
+			.fail(function( e, t) {
+				console.log(e+t);
 			});
 			
 		});
