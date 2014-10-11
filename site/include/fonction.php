@@ -1,6 +1,8 @@
 <?php
 	require_once("bdd.php");
 
+	header('charset=utf-8');
+
 	switch ($_GET['search']) 
 	{
 		case 'promos':
@@ -29,7 +31,7 @@
 	{
 		$reponse = array();
 		connect();
-		$temp = DBQuery("SELECT * from document where promo='$promo'");
+		$temp = DBQuery("SELECT * from document where promo='$promo' OR promo='' ");
 		foreach ($temp as $key => $value) {
 			array_push( $reponse, $value);
 		}

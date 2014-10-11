@@ -24,9 +24,21 @@ p{
 	text-align: center;
 }
 #files
+td, th
+{
+	text-align: center;
+}
 {
 	border: 1px solid;
 	min-height: 700px;
+}
+.file_com
+{
+	background-color: #ccffcc;
+}
+.file_spe
+{
+	background-color: #ffffcc;
 }
 form
 {
