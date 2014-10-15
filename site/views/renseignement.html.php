@@ -1,60 +1,63 @@
 <?php content_for('link');   	?>
 	<link rel="stylesheet" href="../CSS/documents.css">
+	<link rel="stylesheet" href="../CSS/animate.css">
 <?php end_content_for(); 		?>
 <?php content_for('header'); 	?>
 	<div 	 class="row" id="header">
-		<img class="col-sm-2 pull-left" src="../images/logo_ISEN.png" align="center">
-		<h1  class="col-sm-3 col-sm-offset-2" >Documents de rentrée</h1>
-		<h3	 class="col-sm-4 pull-right"	  >ISEN-Brest</h3>
+		<div class="col-sm-4">
+			<img src="../images/logo_ISEN.png" align="center">
+		</div>
+		<h1  class="col-sm-4 text-center" >Documents de rentrée</h1>
+		<h3	 class="col-sm-4"	  >ISEN-Brest</h3>
 	</div>
 	<hr>
 <?php end_content_for();		?>
 
 <?php content_for('body'); 		?>
-	<div class="col-md-6">
-		<form class="form-horizontal">
+	<div 		class="col-md-6">
+		<form 	class="form-horizontal" method="POST" action="../include/fonction.php?action=save">
 			<fieldset id="etudiant">
 				<p>Nous vous remercions de bien vouloir compléter ce formulaire avant d'accéder aux documents de rentrée.</p>
 				<p>Identifiant : <?= $user['identifiant'] ?></p>
 				<legend>Etudiant(e)</legend>
-				<div 		class="form-group">
-					<label 	class="col-md-4 control-label" for="nom_fils">Nom de l'étidiant(e):</label>  
-				  	<div 	class="col-md-4">
-				  		<input id="nom_fils" name="nom_fils" type="text" placeholder="<?= $user['nom_fils'] ?>" class="form-control input-md" required="">
-				  		<span class="help-block">Entrez le nom de l</span>  
+				<div 			class="form-group" >
+					<label 		class="col-md-4 control-label" for="nom_fils">Nom de l'étidiant(e):</label>  
+				  	<div 		class="col-md-4">
+				  		<input 	class="form-control input-md" id="nom_fils" name="nom_fils" type="text" value="<?= $user['nom_fils'] ?>" required="">
+				  		<span 	class="help-block" >Entrez le nom de l'étudiant</span>  
 				  	</div>
 				</div>
 				<div 		class="form-group">
 					<label 	class="col-md-4 control-label" for="prenom_fils">Prénom de l'étudiant(e)</label>  
 				  	<div 	class="col-md-4">
-				  		<input id="prenom_fils" name="prenom_fils" type="text" placeholder="<?= $user['prenom_fils'] ?>" class="form-control input-md" required="">
-				  		<span class="help-block">Entrez le prénom de l</span>  
+				  		<input id="prenom_fils" name="prenom_fils" type="text" value="<?= $user['prenom_fils'] ?>" class="form-control input-md" required="">
+				  		<span class="help-block">Entrez le prénom de l'étudiant</span>  
 				  	</div>
 				</div>
-				<div 		class="form-group">
-					<label 	class="col-md-4 control-label" for="date">Date de naissance</label>  
-					<div 	class="col-md-4">
-						<input id="date" name="date" type="date" value="<?= $date ?>" class="form-control input-md" required="">
-						<span class="help-block">Entrez la date de naissance de l'étudiant</span>  
+				<div 			class="form-group">
+					<label 		class="col-md-4 control-label" for="date">Date de naissance</label>  
+					<div 		class="col-md-4">
+						<input 	class="form-control input-md" id="date" name="date" type="date" value="<?= $date ?>" required="">
+						<span 	class="help-block">Entrez la date de naissance de l'étudiant</span>  
 					</div>
 				</div>
 			</fieldset>
 			<fieldset id="parent">
 				<legend>Parents</legend>
-				<div 		class="form-group">
-				  <label 	class="col-md-4 control-label" for="tel">Téléphone</label>  
-				  <div 		class="col-md-4">
-				  <input id="tel" name="tel" type="tel" placeholder="<?= $user['tel_mobile'] ?>" class="form-control input-md" required="">
-				  <span class="help-block">Entrez le téléphone des parents</span>  
-				  </div>
+				<div 			class="form-group">
+					<label 		class="col-md-4 control-label" for="tel">Téléphone</label>  
+				  	<div 		class="col-md-4">
+				  		<input 	class="form-control input-md" id="tel" name="tel" type="tel" value="<?= $user['tel_mobile'] ?>" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" required="">
+				  		<span 	class="help-block">Entrez le téléphone des parents</span>  
+				  	</div>
 				</div>
 
 				<div 		class="form-group">
-				  <label 	class="col-md-4 control-label" for="mail">Courriel</label>  
-				  <div 		class="col-md-4">
-				  <input id="mail" name="mail" type="email" placeholder="<?= $user['courriel'] ?>" class="form-control input-md" required="">
-				  <span class="help-block">E-mail des parents</span>  
-				  </div>
+					<label 	class="col-md-4 control-label" for="mail">Courriel</label>  
+					<div 		class="col-md-4">
+						<input 	class="form-control input-md" id="mail" name="mail" type="email" value="<?= $user['courriel'] ?>" required="">
+						<span 	class="help-block">E-mail des parents</span>  
+					</div>
 				</div>
 				<input class="col-sm-3" 				type="reset" 	value="Quitter">
 				<input class="col-sm-3 col-sm-offset-6"	type="submit" 	value="Enregistrer">
@@ -72,7 +75,7 @@
 		<p>Vous trouverez sur cette page toutes les informations utiles pour la rentrée 2014 en sélectionnant l'année qui vous concerne. Vous pouvez télécharger chaque fichier (format PDF) ou bien l'ensemble des fichiers (format ZIP) pour l'année choisie. A imprimer avec modération...
 		</p>
 		<hr>
-		<div class="col-md-10 col-md-offset-1">
+		<div 				class="col-md-10 col-md-offset-1">
 			<div 			class="form-group">
 				<label 		class="col-md-4 control-label" for="">Choisissez votre année : </label>
 			  	<div 		class="col-md-8">

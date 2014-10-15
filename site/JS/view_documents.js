@@ -1,33 +1,17 @@
-jQuery(document).ready(function($) {
-
+jQuery(document).ready(function($) 
+{
 	var sel 		= $('#SelectPromo');
 	var conteneur 	= $('#conteneur');
 
-	function sortByPlace(k1, k2){  
-			//return key1.rang > key2.rang;  
-			if ( k1.promo > k2.promo )
-				return 1;
-			else if ( k1.promo < k2.promo )
-			   	return -1;
-			else if ( k1.rang > k2.rang )
-			   	return 1;
-			 else
-			 {
-			 	return 0;
-			 }
-	}  
-
-
-
-
-
-
-
-	$.ajax( // CHARGMENT DES CATEGORIES ( APL BDD LENT DONC TRANSVASÉ COTÉ CLIENT )
+// CHARGMENT DES CATEGORIES ( APL BDD LENT DONC TRANSVASÉ COTÉ CLIENT )
+	$.ajax( 
 	{
 		url: '../include/fonction.php',
 		dataType: 'json',
-		data: {search: 'promos'},
+		data: 
+		{
+			action: 'promos'
+		},
 	})
 	.done(function( data ) 
 	{
@@ -42,40 +26,28 @@ jQuery(document).ready(function($) {
 		alert("Erreur de chargement de données: " + textStatus);
 	});
 
-
-
-
-
-	sel.change(function(event) { // CHANGEMENT DU SELECT PROMO
-		
+// CHANGEMENT DU SELECT PROMO
+	sel.change(function(event) 
+	{ 
+		conteneur.parent().removeClass('animated bounceInRight');
 		console.log('changement de promo ' + sel.val() );
 		$.ajax(
 		{
 			url: '../include/fonction.php',
 			type: 'GET',
 			dataType: 'json',
-			contentType: "charset=utf-8", 
 			data: 
 			{
-				search: 'files',
+				action: 'files',
 				promo: sel.val()
 			},
 		})
-		.done(function( data) 
+		.done(function( data ) 
 		{
-			data.sort(sortByPlace);  // TRI SELON FONCTION
-			console.log(data);
-			var contenu ="";
+			var contenu = "";
 			$.each( data, function(key, value) 
 			{
-				if (value.promo == "")
-				{
-					var classe = "file_com";
-				}
-				else
-				{
-					var classe = "file_spe";
-				}
+				var classe = (value.promo == "")? "file_com" : "file_spe" ;
 
 		    	contenu += '<tr class="'
 		    			+ classe
@@ -87,6 +59,7 @@ jQuery(document).ready(function($) {
 		    			+ value.fichier 
 		    			+'"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
 			});
+			conteneur.parent().addClass('animated bounceInRight');
 			conteneur.html (contenu);
 		})
 		.fail(function( e, t) 
