@@ -23,7 +23,7 @@
 	{
 		$reponse = array();
 		connect();
-		$temp = DBQuery("SELECT distinct promo FROM document");
+		$temp = DBQuery("SELECT libelle FROM promo");
 		foreach ($temp as $key => $value) 
 		{
 			array_push( $reponse, $value[0]);
@@ -35,7 +35,10 @@
 	{
 		$reponse = array();
 		connect();
-		$temp = DBQuery("SELECT * from document where promo='$promo' OR promo='' ORDER BY promo, rang");
+		$temp = DBQuery("SELECT * from document 
+		                 WHERE promo='$promo' 
+		                 	OR promo=( SELECT id FROM promo WHERE libelle='All' ) 
+		                 ORDER BY promo DESC, rang ASC");
 		foreach ($temp as $key => $value) 
 		{
 			array_push( $reponse, $value);

@@ -28,10 +28,14 @@ td, th
 {
 	text-align: center;
 }
-.extensions
+.extension_pdf
 {
 	width: 30px;
 	display: inline;
+}
+.extension_zip
+{
+	width: 70px;
 }
 .file_com
 {

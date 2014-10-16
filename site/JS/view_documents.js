@@ -47,7 +47,7 @@ jQuery(document).ready(function($)
 			var contenu = "";
 			$.each( data, function(key, value) 
 			{
-				var classe = (value.promo == "")? "file_com" : "file_spe" ;
+				var classe = (value.promo == "18")? "file_com" : "file_spe" ;
 
 		    	contenu += '<tr class="'
 		    			+ classe
@@ -57,7 +57,7 @@ jQuery(document).ready(function($)
 		    			+ value.libelle 
 		    			+'</td><td><a href="'
 		    			+ value.fichier 
-		    			+'"><img class="img-responsive extensions" src="../images/pdf.png"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
+		    			+'"><img class="img-responsive extension_pdf" src="../images/pdf.png"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
 			});
 			conteneur.parent().addClass('animated bounceInRight');
 			conteneur.html (contenu);

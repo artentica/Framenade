@@ -81,27 +81,34 @@
 			<a href="http://www.7-zip.org/" target="_blank">ZIP</a>) pour l'année choisie. A imprimer avec modération...
 		</p>
 		<hr>
-		<div 				class="col-md-10 col-md-offset-1">
-			<div 			class="form-group">
-				<label 		class="col-md-4 control-label" for="">Choisissez votre année : </label>
-			  	<div 		class="col-md-8">
-			    	<select class="form-control" id="SelectPromo" >
-			      		<option selected disabled >Séléctionnez une promo</option>
-				    </select>
-				</div>
-				<div 		class="table-responsive">
-					<table 	class="table">
-						<thead>
-							<th>#</th>
-							<th>Ci-dessous, les <span class="red" id="files_count"></span> documents disponibles...</th>
-							<th>Fichiers</th>
-						</thead>
-						<tbody id="conteneur">
-						</tbody>
-					</table>
+		<div class="row">
+			<div 				class="col-md-10 col-md-offset-1">
+				<div 			class="form-group">
+					<label 		class="col-md-4 control-label" for="">Choisissez votre année : </label>
+				  	<div 		class="col-md-8">
+				    	<select class="form-control" id="SelectPromo" >
+				      		<option selected disabled >Séléctionnez une promo</option>
+					    </select>
+					</div>
+					<div 		class="table-responsive">
+						<table 	class="table">
+							<thead>
+								<th>#</th>
+								<th>Ci-dessous, les <span class="red" id="files_count"></span> documents disponibles...</th>
+								<th>Fichiers</th>
+							</thead>
+							<tbody id="conteneur">
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<p>1ère année, Cycle Sciences de l'Ingénieur
+			Télécharger tous les fichiers</p>
+			<a class="col-xs-4 col-xs-offset-5" href=""><img class="img-responsive extension_zip" src="../images/zip.png"></a>
+		</div>	
 	</div>
 
 <?php end_content_for(); ?>
