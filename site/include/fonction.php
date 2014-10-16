@@ -24,7 +24,8 @@
 		$reponse = array();
 		connect();
 		$temp = DBQuery("SELECT distinct promo FROM document");
-		foreach ($temp as $key => $value) {
+		foreach ($temp as $key => $value) 
+		{
 			array_push( $reponse, $value[0]);
 		}
 
@@ -35,10 +36,10 @@
 		$reponse = array();
 		connect();
 		$temp = DBQuery("SELECT * from document where promo='$promo' OR promo='' ORDER BY promo, rang");
-		foreach ($temp as $key => $value) {
+		foreach ($temp as $key => $value) 
+		{
 			array_push( $reponse, $value);
 		}
-
 		return json_encode( $reponse );
 	}
 	function save_data()
@@ -49,7 +50,7 @@
 		    && 	!empty($_POST['tel'])
 		    && 	!empty($_POST['mail'])			)
 		{
-
+			echo 'tout les champs sont remplis';
 		}
 	}
 ?>

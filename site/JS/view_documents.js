@@ -57,10 +57,11 @@ jQuery(document).ready(function($)
 		    			+ value.libelle 
 		    			+'</td><td><a href="'
 		    			+ value.fichier 
-		    			+'"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
+		    			+'"><img class="img-responsive extensions" src="../images/pdf.png"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
 			});
 			conteneur.parent().addClass('animated bounceInRight');
 			conteneur.html (contenu);
+			$('#files_count').text( data.length );
 		})
 		.fail(function( e, t) 
 		{

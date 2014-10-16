@@ -15,6 +15,7 @@ h3
 body
 {
 	background-color: #c5efff;
+	overflow-x: hidden; 
 }
 body > img
 {
@@ -23,14 +24,14 @@ body > img
 p{
 	text-align: center;
 }
-#files
 td, th
 {
 	text-align: center;
 }
+.extensions
 {
-	border: 1px solid;
-	min-height: 700px;
+	width: 30px;
+	display: inline;
 }
 .file_com
 {
