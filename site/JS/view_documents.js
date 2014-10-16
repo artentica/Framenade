@@ -16,9 +16,9 @@ jQuery(document).ready(function($)
 	.done(function( data ) 
 	{
 		console.log("success promo changed");
-		$.each( data, function(key, value) 
+		$.each( data, function(key, value) 		// PERMET DE REMPLIR LE SELECT AVEC LA LISTE DE TOUTES LES PROMOS
 		{
-		    sel.append('<option value=' + value + '>' + value + '</option>');
+		    sel.append('<option value=' + value.id + '>' + value.libelle + '</option>');
 		});
 	})
 	.fail(function( jqXHR, textStatus ) 
@@ -45,7 +45,7 @@ jQuery(document).ready(function($)
 		.done(function( data ) 
 		{
 			var contenu = "";
-			$.each( data, function(key, value) 
+			$.each( data, function(key, value) //MET EN FORME DE JSON VERS <TABLE>
 			{
 				var classe = (value.promo == "18")? "file_com" : "file_spe" ;
 
@@ -61,11 +61,29 @@ jQuery(document).ready(function($)
 			});
 			conteneur.parent().addClass('animated bounceInRight');
 			conteneur.html (contenu);
-			$('#files_count').text( data.length );
+			$('#files_count').text( 	data.length );  // ENVOI LE NOMBRE DE FICHIERS
+			$('#promo_libelle').text( 	sel.val() 	);	//ENVOI LE LIBELLE DE LA PROMO A LIEN ZIP
+			$('#promo_zip_link').attr('href', '../include/fonction.php?action=zip&prom="' + sel.val() +'"' );
 		})
 		.fail(function( e, t) 
 		{
 			console.log(e+t);
 		});
+	});
+
+// ENREGISTREMENT DES DONNEES DU FORMULAIRE
+	$('#data').on('submit', function(e) {
+		e.preventDefault();
+
+		$.ajax({
+            url: $(this).attr('action'), // Le nom du fichier indiqué dans le formulaire
+            type: $(this).attr('method'), // La méthode indiquée dans le formulaire (get ou post)
+            data: $(this).serialize(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
+            success: function(html) 
+            { // Je récupère la réponse du fichier PHP
+                alert(html); // J'affiche cette réponse
+            }
+        });	
+        return false;
 	});
 });

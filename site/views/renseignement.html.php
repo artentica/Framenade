@@ -18,7 +18,7 @@
 <?php end_content_for();		?>
 <?php content_for('body'); 		?>
 	<div 		class="col-md-5">
-		<form 	class="form-horizontal" method="POST" action="../include/fonction.php?action=save">
+		<form 	class="form-horizontal" id="data" method="POST" action="../include/fonction.php?action=save">
 			<fieldset id="etudiant">
 				<legend>Etudiant(e)</legend>
 				<p>Nous vous remercions de bien vouloir compléter ce formulaire avant d'accéder aux documents de rentrée.</p>
@@ -105,9 +105,11 @@
 			</div>
 		</div>
 		<div class="row">
-			<p>1ère année, Cycle Sciences de l'Ingénieur
+			<p><span id="promo_libelle"></span>
 			Télécharger tous les fichiers</p>
-			<a class="col-xs-4 col-xs-offset-5" href=""><img class="img-responsive extension_zip" src="../images/zip.png"></a>
+			<a 			class="col-xs-4 col-xs-offset-5" href="#" id="promo_zip_link">
+				<img 	class="img-responsive extension_zip" src="../images/zip.png">
+			</a>
 		</div>	
 	</div>
 
