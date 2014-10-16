@@ -57,59 +57,49 @@
 		    && 	!empty($_POST['tel'])
 		    && 	!empty($_POST['mail'])			)
 		{
-			echo 'tout les champs sont remplis';
+			$alertType = "success";
 
 			define('nom_fils', 		$_POST['nom_fils']);	//ATTRIBUTION DE TOUTES LES VARIABLES
 			define('prenom_fils', 	$_POST['prenom_fils']);
 			define('ddn_fils', 		$_POST['date']);
 			define('tel', 			$_POST['tel']);
 			define('courriel', 		$_POST['mail']);
-			define('date', 			date('y-m-d H:i:s'));
+			define('dateI', 		date('y-m-d H:i:s'));
 			define('identifiant', 	$_SESSION['mail']);
 			define('ip', 			$_SERVER['REMOTE_ADDR']);
-			/*$date = new DateTime('2000-01-01');
-			echo $date->format('Y-m-d H:i:s');*/
 
 			connect();
-			if( DBQuery("SELECT id FROM data WHERE identifiant='" . identifiant . "'") == NULL )
+			if( DBQuery("SELECT id FROM data WHERE identifiant='" . identifiant . "'")==NULL )
 			{
-				echo ('nouvel utilisateur '.identifiant);
+				$content = ("L'utilisateur a bien été créer ".identifiant);
 				DBInsert("INSERT INTO data (
-				        identifiant, nom_fils, prenom_fils, ddn_fils, tel_mobile, courriel, date, ip
-				        ) VALUES ('".
-				        identifiant
-				        ."', '".
-				        nom_fils
-				        ."', '".
-				        prenom_fils
-				        ."', '".
-				        ddn_fils
-				        ."', '".
-				        tel
-				        ."', '".
-				        courriel
-				        ."', '".
-				        date
-				        ."', '".
-				        ip
-				        ."')");
+				        identifiant, nom_fils, prenom_fils, ddn_fils, tel_mobile, courriel, date, ip) 
+						VALUES 
+						('". identifiant ."', '". nom_fils ."', '". prenom_fils ."', '".
+				        ddn_fils ."', '". tel ."', '". courriel ."', '". dateI ."', '". ip ."')");
 			}
 			else
 			{
-				echo("modif d'utilisateur");
-				$req="UPDATE data
-						SET nom_fils='".nom_fils."',
-						prenom_fils='".prenom_fils."',
-						ddn_fils='".ddn_fils."',
-						tel_mobile='".tel."',
-						courriel='".courriel."',
-						date='".date."',
-						ip='".ip."'";
-				echo $req;
-				echo DBInsert( $req );
+				$content = "Les modifications ont bien été prises en compte.";
+				DBInsert( "UPDATE data
+								SET nom_fils='".	nom_fils."',
+								prenom_fils='".		prenom_fils."',
+								ddn_fils='".		ddn_fils."',
+								tel_mobile='".		tel."',
+								courriel='".		courriel."',
+								date='".			dateI."',
+								ip='".				ip."' 
+								WHERE identifiant='". identifiant ."'" );
 			}
-
 		}
+		else
+		{
+			$alertType = "danger";
+		}
+		echo('<div class="alert alert-'. $alertType .' alert-dismissible animated zoomInUp" role="alert">
+				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
+				'. $content .'
+			</div>');
 	}
 	function zipping()
 	{

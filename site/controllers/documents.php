@@ -9,7 +9,7 @@
 
 		set ('page_title', 'Renseignements');
 
-		$users = DBQuery("SELECT * FROM data WHERE courriel='". $_SESSION['mail'] ."'");
+		$users = DBQuery("SELECT * FROM data WHERE identifiant='". $_SESSION['mail'] ."'");
 
 		if( !empty($users[0]) )
 			set( 'user', $users[0] );
@@ -19,11 +19,11 @@
 			    "prenom_fils"	=>"",
 			    "tel_mobile"	=>"",
 			    "courriel"		=>"",
-			    "identifiant"	=>""
+			    "identifiant"	=>$_SESSION['mail']
 			));
 		}
 
-		$dates = ( !empty($users[0]) ) ? strtotime( $users[0]['date'] ) : "";
+		$dates = ( !empty($users[0]) ) ? strtotime( $users[0]['ddn_fils'] ) : "";
 		set('date', date( 'Y-m-d', $dates ) );
 		return html ('renseignement.html.php', 'layout.html.php');
 	}

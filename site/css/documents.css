@@ -6,6 +6,10 @@
 {
 	padding-top: 30px;
 }
+#header div img
+{
+	padding-left: 50px;
+}
 h3
 {
 	text-align: center;
@@ -24,9 +28,18 @@ body > img
 p{
 	text-align: center;
 }
+table
+{
+	box-shadow: 1px 1px 8px 4px #aaaaaa;
+}
+.table-responsive
+{
+	padding-top: 20px;
+}
 td, th
 {
 	text-align: center;
+	padding: 1px !important;
 }
 .extension_pdf
 {
@@ -48,7 +61,8 @@ td, th
 form
 {
 	color: #000090;
-	border: 1px solid grey;
+	border: 1px solid black;
+	box-shadow: 1px 1px 8px 4px #aaaaaa;
 }
 legend
 {
