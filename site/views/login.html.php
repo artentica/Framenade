@@ -11,7 +11,7 @@
 
 <?php content_for('body'); ?>
 
-<form method="post" action="include/verif_user.php">
+<form method="post" action="index.php/verifUser">
    <p>
        <label for="mail" class="monLabel">Courriel </label> :  <input type="email" name="mail" id="mail" />
        <br/><p class="texte">(Cette adresse électronique sera votre identifiant)</p>

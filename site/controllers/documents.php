@@ -5,7 +5,6 @@
 		{
 			header('Location:../index.php');
 		}
-		include('../include/bdd.php');
 
 		set ('page_title', 'Renseignements');
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../CSS/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<title><?php echo h($page_title) ?></title>
 	<?php if(!empty($link)):
 		echo $link;
@@ -20,8 +20,8 @@
 		echo $footer;
 	endif;
 	?>
-	<script type="text/javascript" src="../JS/jquery.min.js"></script>
-	<script type="text/javascript" src="../JS/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<?php 
 		if(!empty($js_foot)):
 			echo $js_foot;

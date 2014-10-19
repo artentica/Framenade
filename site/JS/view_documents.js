@@ -6,7 +6,7 @@ jQuery(document).ready(function($)
 // CHARGMENT DES CATEGORIES ( APL BDD LENT DONC TRANSVASÉ COTÉ CLIENT )
 	$.ajax( 
 	{
-		url: '../include/fonction.php',
+		url: 'index.php/fonction',
 		dataType: 'json',
 		data: 
 		{
@@ -33,7 +33,7 @@ jQuery(document).ready(function($)
 		console.log('changement de promo ' + sel.val() );
 		$.ajax(
 		{
-			url: '../include/fonction.php',
+			url: 'index.php/fonction',
 			type: 'GET',
 			dataType: 'json',
 			data: 
@@ -57,13 +57,13 @@ jQuery(document).ready(function($)
 		    			+ value.libelle 
 		    			+'</td><td><a href="'
 		    			+ value.fichier 
-		    			+'"><img class="img-responsive extension_pdf" src="../images/pdf.png"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
+		    			+'"><img class="img-responsive extension_pdf" src="images/pdf.png"><span class="glyphicon glyphicon-download"></span</a></td></tr>';
 			});
 			conteneur.parent().addClass('animated bounceInRight');
 			conteneur.html (contenu);
 			$('#files_count').text( 	data.length );  // ENVOI LE NOMBRE DE FICHIERS
 			$('#promo_libelle').text( 	$('option:selected').text()	);	//ENVOI LE LIBELLE DE LA PROMO A LIEN ZIP
-			$('#promo_zip_link').attr('href', '../include/fonction.php?action=zip&prom="' + sel.val() +'"' );
+			$('#promo_zip_link').attr('href', 'index.php/fonction?action=zip&prom="' + sel.val() +'"' );
 		})
 		.fail(function( e, t) 
 		{

@@ -1,12 +1,12 @@
 <?php content_for('link'); ?>
 
-	<link rel="stylesheet" href="../CSS/documents.css">
-	<link rel="stylesheet" href="../CSS/animate.css">
+	<link rel="stylesheet" href="css/documents.css">
+	<link rel="stylesheet" href="css/animate.css">
 <?php end_content_for(); ?>
 <?php content_for('header'); ?>
 	<div 	 class="row" id="header">
 		<div class="col-sm-4">
-			<img src="../images/logo_ISEN.png" align="center">
+			<img src="images/logo_ISEN.png" align="center">
 		</div>
 		<h1  class="col-sm-4 text-center" >Documents de rentrée</h1>
 		<h3	 class="col-sm-4"	  >BREST-RENNES</h3>
@@ -16,7 +16,7 @@
 <?php content_for('body'); 		?>
 	<div class="row">
 		<div 		class="col-md-4 col-md-offset-1">
-			<form 	class="form-horizontal" id="data" method="POST" action="../include/fonction.php?action=save">
+			<form 	class="form-horizontal" id="data" method="POST" action="index.php/fonction?action=save">
 				<fieldset id="etudiant">
 					<legend>Etudiant(e)</legend>
 					<div id="notif"></div>
@@ -100,12 +100,12 @@
 				<p><b id="promo_libelle"></b>
 				Télécharger tous les fichiers</p>
 				<a 			class="col-xs-4 col-xs-offset-5" href="#" id="promo_zip_link">
-					<img 	class="img-responsive extension_zip" src="../images/zip.png">
+					<img 	class="img-responsive extension_zip" src="images/zip.png">
 				</a>
 			</div>	
 		</div>
 	</div>
 <?php end_content_for(); ?>
 <?php content_for('js_foot'); ?>
-	<script type="text/javascript" src="../JS/view_documents.js"></script>
+	<script type="text/javascript" src="js/view_documents.js"></script>
 <?php end_content_for(); ?>
