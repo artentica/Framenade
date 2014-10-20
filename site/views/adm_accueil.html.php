@@ -12,7 +12,7 @@
 	<h1 style="text-align:center">Bienvenue sur l'interface d'administration</h1>
 	<hr>
 	<div class="row">
-		<form class="form-horizontal col-sm-4 col-sm-offset-4" method="POST" action="<?= url_for('/administration_accueil') ?>">
+		<form class="form-horizontal col-sm-4 col-sm-offset-4" method="POST" action="<?= url_for('/administration_panel') ?>">
 			<fieldset>
 
 				<!-- Form Name -->
@@ -28,7 +28,6 @@
 			</fieldset>
 		</form>
 	</div>
-	<?= print_r($flash) ?>
 <?php end_content_for();?>
 
 <?php content_for('footer')?>

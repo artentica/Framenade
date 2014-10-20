@@ -16,7 +16,9 @@
 	dispatch('/documents'				, 'renseignement');
 
 	dispatch('/administration_accueil'	, 'adm_accueil');
-	dispatch_post('/administration_accueil', 'adm_panel');
+	
+	dispatch_post('/administration_panel'	, 'adm_panel');
+	dispatch('/administration_panel'		, 'adm_panel');
 
 	run();
 ?>
