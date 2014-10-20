@@ -37,4 +37,9 @@ mkdir /var/www/{{MY_FOLDER}} | cd /var/www/{{MY_FOLDER}}
 git clone https://github.com/miton18/Framenade.git
 rm -R .git
 ```
-
+Modification de la configuration
+----
+Editez le fichier de config:
+```h
+    nano /var/www/{{MY_FOLDER}}/lib/config.php
+```
