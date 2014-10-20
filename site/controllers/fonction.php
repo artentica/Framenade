@@ -20,6 +20,9 @@
 			case 'zip':
 				zipping();
 				break;
+			case 'exist_user':
+				echo exist_user();
+				break;
 			default:
 				# code...
 				break;
@@ -105,6 +108,48 @@
 	}
 	function zipping()
 	{
+		$id 			= $_GET['promo'];
+		//$zipLibelle 	= DBQuery("SELECT libelle FROM promo WHERE id='" . $id . "'" )[0][0] . ".zip";
+		$zipLibelle 	= 'zip/documents_' . $id . '.zip'; 
+		//LIBELLE DE LA PROMO EN FONCTION DE SON ID
+		$files 			= DBQuery('SELECT fichier FROM document WHERE promo=18 OR promo=' . $id);
+		$zip 			= new ZipArchive();
 
+		//print_r($files);
+
+		if ($zip->open( $zipLibelle, ZipArchive::CREATE)!==TRUE) 
+		{
+		    exit("Impossible d'ouvrir le fichier <$zipLibelle>\n");
+		}
+		else
+		{
+			foreach ($files as $k => $file)
+			{
+				$zip->addFile( "pdf/" . $file[0] );
+			}
+			//echo "Nombre de fichiers : " . $zip->numFiles . "\n";
+			//echo "Statut :" . $zip->status . "\n";
+			$zip->close();
+		}
+		header('Content-type: application/zip');
+		header('Expires: 0');
+		header("Content-Length: ".filesize( $zipLibelle ));
+		header('Content-Disposition: attachment; filename="'. $zipLibelle .'"');
+
+		if (strstr($_SERVER['HTTP_USER_AGENT'], "MSIE")) {
+		    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		    header("Content-Transfer-Encoding: binary");
+		    header('Pragma: public');
+		} else {
+		    
+		    header("Content-Transfer-Encoding: binary");
+		    header('Pragma: no-cache');
+		    
+		}
+		readfile( $zipLibelle );
+	}
+	function exist_user()
+	{
+		return 'false';
 	}
 ?>

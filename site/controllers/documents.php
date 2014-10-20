@@ -3,7 +3,7 @@
 	{
 		if( $_SESSION['connect'] == false )
 		{
-			header('Location:../index.php');
+			header('Location:' . url_for('/') );
 		}
 
 		set ('page_title', 'Renseignements');

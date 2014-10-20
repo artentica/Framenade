@@ -11,12 +11,12 @@
 
 			if( $_SESSION['connect'] )
 			{
-				header( "Location:" . url_for('/documents') );
+				header( 'Location:' . url_for('/documents') );
 			}
 			else
-				header("Location:index.php");
+				header('Location:' . url_for('/'));
 		}
 		else
-			header("Location:index.php");
+			header('Location:' . url_for('/'));
 	}
 ?>

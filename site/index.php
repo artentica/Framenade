@@ -6,6 +6,7 @@
 	dispatch('/clean_install'			, 'clean_install'); //UNIQUEMENT NECESSAIRE A L INSTALLATION
 
 	dispatch('/'						, 'login');
+	dispatch('/logout'					, 'logout');
 
 	dispatch_post('/verifUser'			, 'verif_user');	//VERIFIE INFO UTILISATEUR ET REDIRIGE SUR LA BONNE PAGE
 

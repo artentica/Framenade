@@ -79,3 +79,7 @@ div form #parent
 {
 	background-color: #CCFFCC;
 }
+#zip_zone
+{
+	display: none;
+}

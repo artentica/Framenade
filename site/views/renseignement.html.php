@@ -55,28 +55,37 @@
 							<input 	class="form-control input-sm" id="mail" name="mail" type="email" value="<?= $user['courriel'] ?>" required="">
 						</div>
 					</div>
-					<input class="col-sm-3" 				type="reset" 	value="Quitter">
-					<input class="col-sm-3 col-sm-offset-6"	type="submit" 	value="Enregistrer">
+					<a href="<?= url_for('logout'); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Quitter</a>
+					<input type="submit" class="btn btn-primary pull-right" value="Enregistrer"/>
 				</fieldset>
 			</form>
 			<small>Conformément à la loi "Informatique et Libertés" (loi du 6 janvier 1978 telle que modifiée), vous bénéficiez d'un droit d'accès, de rectification et de suppression des données personnelles vous concernant, que vous pouvez exercer en vous adressant à l'adresse e-mail mentionnée ci-dessous.
 			</small>
 			<hr>
 			<p>© ISEN Bretagne (2014)  - Contact : 
-				<a href="jean-pierre.gerval@isen-bretagne.fr">jean-pierre.gerval@isen-bretagne.fr</a>
+				<a href="mailto:jean-pierre.gerval@isen-bretagne.fr">jean-pierre.gerval@isen-bretagne.fr</a>
 			</p>
 		</div>
+
+
+
 <!-- 2EM PARTIE -->
 		<div class="col-md-7" >
-			<p>Vous trouverez sur cette page toutes les informations utiles pour la rentrée 2014 en sélectionnant l'année qui vous concerne. Vous pouvez télécharger chaque fichier (format 
+			<p>
+				Vous trouverez sur cette page toutes les informations utiles pour la rentrée 2014 en sélectionnant l'année qui vous concerne. Vous pouvez télécharger chaque fichier (format 
 				<a href="http://get.adobe.com/fr/reader/" target="_blank">PDF</a>) ou bien l'ensemble des fichiers (format 
 				<a href="http://www.7-zip.org/" target="_blank">ZIP</a>) pour l'année choisie. A imprimer avec modération...
 			</p>
+			<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				Merci de vous enregistrer avant de proceder au telechargement des fichiers.
+			</div>
 			<hr>
 			<div 					class="row">
 				<div 				class="col-md-10 col-md-offset-1">
 					<div 			class="form-group">
-						<label 		class="col-md-4 control-label" for="SelectPromo">Choisissez votre année : </label>
+						<label 		class="col-md-4 control-label" for="SelectPromo">Choisissez votre année : 
+						</label>
 					  	<div 		class="col-md-8 input-group">
 					    	<select class="form-control" id="SelectPromo" name="SelectPromo">
 					      		<option selected disabled >Séléctionnez une promo</option>
@@ -87,7 +96,8 @@
 						<table 		class="table">
 							<thead>
 								<th>#</th>
-								<th>Ci-dessous, les <span class="red" id="files_count"></span> documents disponibles...</th>
+								<th>Ci-dessous, les 
+								<span class="red" id="files_count"></span> documents disponibles...</th>
 								<th>Fichiers</th>
 							</thead>
 							<tbody id="conteneur">
@@ -96,11 +106,12 @@
 					</div>
 				</div>
 			</div>
-			<div 			class="row">
-				<p><b id="promo_libelle"></b>
+			<div class="row" id="zip_zone">
+				<p>
+				<b id="promo_libelle"></b>
 				Télécharger tous les fichiers</p>
-				<a 			class="col-xs-4 col-xs-offset-5" href="#" id="promo_zip_link">
-					<img 	class="img-responsive extension_zip" src="images/zip.png">
+				<a class="col-xs-4 col-xs-offset-5" href="#" id="promo_zip_link">
+					<img class="img-responsive extension_zip" src="images/zip.png">
 				</a>
 			</div>	
 		</div>
