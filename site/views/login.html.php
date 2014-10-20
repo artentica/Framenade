@@ -25,4 +25,5 @@
 <?php content_for('footer')?>
 <hr/>
 <div class="texte" align="left">© ISEN Bretagne (2014)  - Contact : jean-pierre.gerval@isen-bretagne.fr</div>
+<a href="<?= url_for('administration_accueil') ?>">Panel de gestion</a>
 <?php end_content_for();?>

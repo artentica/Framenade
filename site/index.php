@@ -16,6 +16,7 @@
 	dispatch('/documents'				, 'renseignement');
 
 	dispatch('/administration_accueil'	, 'adm_accueil');
+	dispatch_post('/administration_accueil', 'adm_panel');
 
 	run();
 ?>

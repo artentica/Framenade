@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../CSS/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<title><?php echo h($page_title) ?></title>
 	<?php if(!empty($link)):
 		echo $link;
