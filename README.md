@@ -20,14 +20,14 @@ Installation
 - récuprer le fichier compréssé ici ( pas encore disponnible )
 - décompresser le fichier dans votre répertoire www/
 - lancer le serveur web apache
-    ```sh
+```sh
     /etc/init.d/apache2 restart
-    ```
+```
 - Acceder à la page 
-     ```sh
+```sh
     http://localhost/{{MY_FOLDER}}/install 
     //MY_FOLDER correspond a votre dossier d'installation
-    ```
+```
 - remplissez les champs demandés
  
 ### Installation via Git:
