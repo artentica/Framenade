@@ -18,7 +18,7 @@ Installation
 
 ### Installation manuelle:
 - récuprer le fichier compréssé ici ( pas encore disponnible )
-- décompresser le fichier dans votre répertoire www/
+- décompresser le dossier 'site' de l'archive dans votre répertoire www/{{MY_FOLDER}}
 - lancer le serveur web apache
 ```sh
     /etc/init.d/apache2 restart
@@ -33,13 +33,14 @@ Installation
 ### Installation via Git:
 
 ```sh
-mkdir /var/www/{{MY_FOLDER}} | cd /var/www/{{MY_FOLDER}}
-git clone https://github.com/miton18/Framenade.git
-rm -R .git
+    mkdir /var/www/{{MY_FOLDER}}
+    git clone https://github.com/miton18/Framenade.git
+    mv -R Framenade/site/ /var/www/{{MY_FOLDER}}/
+    rm -R .git
 ```
 Modification de la configuration
 ----
 Editez le fichier de config:
-```h
+```sh
     nano /var/www/{{MY_FOLDER}}/lib/config.php
 ```
