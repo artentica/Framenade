@@ -9,14 +9,14 @@ Projet de 3em année, interface de rentré pour des étudiants,
 Requis
 ----
 
-> Serveur apache
-> PHP5
-> MySQL
+- Serveur apache
+- PHP5
+- MySQL
 
 Installation
 ----
 
-##### Installation manuelle:
+### Installation manuelle:
 - récuprer le fichier compréssé ici ( pas encore disponnible )
 - décompresser le fichier dans votre répertoire www/
 - lancer le serveur web apache
@@ -29,7 +29,8 @@ Installation
     //MY_FOLDER correspond a votre dossier d'installation
     ```
 - remplissez les champs demandés
-##### Installation via Git:
+ 
+### Installation via Git:
 
 ```sh
 mkdir /var/www/{{MY_FOLDER}} | cd /var/www/{{MY_FOLDER}}
