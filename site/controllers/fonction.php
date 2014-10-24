@@ -74,7 +74,7 @@
 			define('ip', 			$_SERVER['REMOTE_ADDR']);
 
 			connect();
-			if( DBQuery("SELECT id FROM data WHERE identifiant='" . identifiant . "'")==NULL )
+			if( DBQuery("SELECT id FROM data WHERE identifiant='" . identifiant . "'") )
 			{
 				$content = ("L'utilisateur a bien été créer ".identifiant);
 				DBInsert("INSERT INTO data (
@@ -86,7 +86,7 @@
 			else
 			{
 				$content = "Les modifications ont bien été prises en compte.";
-				DBInsert( "UPDATE data
+				if( !DBInsert( "UPDATE data
 								SET nom_fils='".	nom_fils."',
 								prenom_fils='".		prenom_fils."',
 								ddn_fils='".		ddn_fils."',
@@ -94,7 +94,11 @@
 								courriel='".		courriel."',
 								date='".			dateI."',
 								ip='".				ip."' 
-								WHERE identifiant='". identifiant ."'" );
+								WHERE identifiant='". identifiant ."'" ))
+				{
+					$alertType 	= "danger";
+					$content 	= "Impossible de traiter la demande";
+				}
 			}
 		}
 		else
@@ -148,8 +152,8 @@
 		}
 		readfile( $zipLibelle );
 	}
-	function exist_user()
+	/*function exist_user()
 	{
 		return 'false';
-	}
+	}*/
 ?>

@@ -27,8 +27,11 @@ define ('dbpass', '" . $dbpass . "');
 ############################# APPLICATION ################################
 ##########################################################################
 ##
-##  Mot de passe pour l'accès a l'application coté étudiant
+##  Mot de passe pour l'accès a l'application coté étudiants
 define('appPass', '" . $appPass . "');
+##
+##  Mot de passe pour l'accès a l'application coté Administrateurs
+define('appAdm', '" . $appAdm . "');
 ##
 ##########################################################################
 ?>";

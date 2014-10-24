@@ -3,7 +3,11 @@
 	{
 		if( empty( $_SESSION['connect_adm'] ))
 		{		
-			if ( !empty($_POST['pass']) && $_POST['pass'] == '1234')
+			/*
+				appAdm: est definit dans lib/config.php
+				definit le mot de passe au panel admin
+			*/
+			if ( !empty($_POST['pass']) && $_POST['pass'] == appAdm)
 				$_SESSION['connect_adm'] = true;
 			else
 				$_SESSION['connect_adm'] = false;

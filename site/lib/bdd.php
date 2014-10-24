@@ -13,26 +13,43 @@
 	            PDO::MYSQL_ATTR_INIT_COMMAND 	=> 'SET NAMES UTF8'
 	        );
 	        // Create a new PDO instanace
-	        try{
+	        try
+	        {
 	            $GLOBALS['db'] = new PDO($dsn, dbuser, dbpass, $options);
 	        }
 	        // Catch any errors
-	        catch(PDOException $e){
-	            $this->error = $e->getMessage();
+	        catch(PDOException $e)
+	        {
+	        	$log = fopen('../LOGFILE.txt', 'a+');
+
+				ftruncate( $log, 0);
+
+				fwrite( $log, $e->getMessage()  );
+
+				fclose( $log);
+
+				return false;
 	        }
+	        return true;
 	    }
 
 		function DBQuery( $str )
 		{
-			connect();
-	    	$temp = $GLOBALS['db']->query( $str );
-	    	$reponse = $temp->fetchAll();
-	    	return $reponse;
+			if (connect())
+			{
+	    		$temp 		= $GLOBALS['db']->query( $str );
+	    		$reponse 	= $temp->fetchAll();
+	    		return $reponse;
+	    	}
+	    	return false;
 		}
 		function DBInsert( $str )
 		{
-			connect();
-	    	$temp = $GLOBALS['db']->exec( $str );
-	    	return $temp;
+			if (connect())
+			{
+	    		$temp 		= $GLOBALS['db']->exec( $str );
+	    		return $temp;
+	    	}
+	    	return false;
 		}
 ?>

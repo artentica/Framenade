@@ -40,6 +40,9 @@
 				<hr>
 				<label for="dbpass">Mot de passe de l'application</label>
 				<input 	class="form-control" type="text" name="appPass">
+
+				<label for="dbpass">Mot de passe des administrateurs</label>
+				<input 	class="form-control" type="text" name="appAdm">
 				<hr>
 				<button class="btn btn-success col-md-5" id="validator"><i class="icon-white icon-ok"></i>Tester</button>
 				<input 	class="btn btn-primary col-md-5 col-md-offset-2" type="submit" value="Enregistrer">
