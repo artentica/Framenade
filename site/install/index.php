@@ -38,7 +38,10 @@
 				<label for="dbpass">Mot de passe correspondant:</label>
 				<input 	class="form-control" type="text" name="dbpass">
 				<hr>
-				<button class="btn btn-success col-md-5" id="validator"><i class="icon-white icon-ok"></i>Tester				</button>
+				<label for="dbpass">Mot de passe de l'application</label>
+				<input 	class="form-control" type="text" name="appPass">
+				<hr>
+				<button class="btn btn-success col-md-5" id="validator"><i class="icon-white icon-ok"></i>Tester</button>
 				<input 	class="btn btn-primary col-md-5 col-md-offset-2" type="submit" value="Enregistrer">
 			</form> 
 			<hr>	

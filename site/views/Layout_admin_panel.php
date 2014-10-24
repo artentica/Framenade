@@ -11,23 +11,27 @@
 	?>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	<nav 			class="navbar navbar-default navbar-static-top" role="navigation">
+		<div 		class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="javascript:void(0)">
-			<img src="Images/logo_ISEN.png" style="height: 50px;background-color: white;">
+			<a class="navbar-brand" href="index.php">
+				<img src="Images/logo_ISEN.png">
 			</a>
 		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="javascript:void(0)">Link</a></li>
-				<li class="dropdown">
+				<li >
+					<a href="<?= url_for('/administration_panel')?>">Gestion des fichiers</a>
+				</li>
+				<li>
+					<a href="<?= url_for('/login') ?>">Gestion des données</a>
+				</li>
+				<!--li class="dropdown">
 					<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="javascript:void(0)">Action</a></li>
@@ -45,22 +49,18 @@
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form-->
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?= url_for('logout'); ?>">Deconnexion</a></li>
+				<li><a href="<?= url_for('logout'); ?>">Deconnexion </a></li>
 			</ul>
-		</div><!-- /.navbar-collapse -->
-
-	<?php if(!empty($header)):
-		echo $header;
-	endif; ?>
+		</div>
+	</nav>
+	<div class="container-fluid">
+	</div>
 	<div class="body">
 		<?php echo $body;?>
 	</div>
-	<?php if(!empty($footer)):
-		echo $footer;
-	endif;
-	?>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/adm_global.js"></script>
 	<?php 
 		if(!empty($js_foot)):
 			echo $js_foot;
