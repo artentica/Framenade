@@ -62,12 +62,12 @@ jQuery(document).ready(function($)
 		e.preventDefault(); // empeche l'envoi du formulaire normal
 
 		$.ajax({
-            url: $(this).attr('action'), 		// Le nom du fichier indiqué dans le formulaire
-            type: $(this).attr('method'), 		// méthode indiquée dans le formulaire (get ou post)
+            url: $(this).attr('action'), 		// Le nom du fichier indiquÃ© dans le formulaire
+            type: $(this).attr('method'), 		// mÃ©thode indiquÃ©e dans le formulaire (get ou post)
             dataType: 'html',
-            data: $(this).serialize(), 			// sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
+            data: $(this).serialize(), 			// sÃ©rialise les donnÃ©es (j'envoie toutes les valeurs prÃ©sentes dans le formulaire)
             success: function( data ) 
-            { 									// récupère la réponse du fichier PHP
+            { 									// rÃ©cupÃ¨re la rÃ©ponse du fichier PHP
                 $('#notif').html(data);
                 promo_load();
             }
@@ -75,7 +75,7 @@ jQuery(document).ready(function($)
         return false;
 	});
 
-// CHARGMENT DES CATEGORIES ( APL BDD LENT DONC TRANSVASÉ COTÉ CLIENT )
+// CHARGMENT DES CATEGORIES ( APL BDD LENT DONC TRANSVASÃ‰ COTÃ‰ CLIENT )
 	function promo_load()
 	{
 		$.ajax( 
@@ -97,7 +97,7 @@ jQuery(document).ready(function($)
 		})
 		.fail(function( jqXHR, textStatus ) 
 		{
-			alert("Erreur de chargement de données: " + textStatus);
+			alert("Erreur de chargement de donnÃ©es: " + textStatus);
 		});
 	}
 });

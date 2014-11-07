@@ -152,8 +152,4 @@
 		}
 		readfile( $zipLibelle );
 	}
-	/*function exist_user()
-	{
-		return 'false';
-	}*/
 ?>

@@ -29,8 +29,9 @@
 					<a href="<?= url_for('/administration_panel')?>">Gestion des fichiers</a>
 				</li>
 				<li>
-					<a href="<?= url_for('/login') ?>">Gestion des données</a>
+					<a href="<?= url_for('/administration_data') ?>">Gestion des données</a>
 				</li>
+			</ul>
 				<!--li class="dropdown">
 					<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 					<ul class="dropdown-menu">
