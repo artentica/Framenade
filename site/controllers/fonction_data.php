@@ -13,7 +13,7 @@
 	function list_data()
 	{
 		connect();
-		$temp = DBQuery('SELECT * FROM data');
+		$temp = DBQuery('SELECT * FROM data ORDER BY nom_fils');
 
 		return json_encode( $temp );
 	}
