@@ -11,7 +11,7 @@
 		  <label for="search">Recherche par nom:</label>
 		  <input type="text" name="search" id="search_nom" />
 	  </div>
-	  <div id="notification"></div>
+	  <div id="notification" class="col-sm-6 col-sm-offset-3"></div>
 	  <!-- Table -->
 	  <table class="table">
 		  <thead>

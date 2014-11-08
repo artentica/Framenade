@@ -9,16 +9,19 @@
 NECESSAIRE A L INSTALLATION
 ========================================================================
 */
-	dispatch('/clean_install'				, 'clean_install'); //UNIQUEMENT NECESSAIRE A L INSTALLATION
+	dispatch('/clean_install'				, 'clean_install');
+	//UNIQUEMENT NECESSAIRE A L INSTALLATION
 /*
 ========================================================================
 GESTION DES UTILISATEURS ET DE LEUR CONNEXION
 ========================================================================
 */
 	dispatch('/logout'						, 'logout');
-	dispatch_post('/verifUser'				, 'verif_user');	//VERIFIE INFO UTILISATEUR ET REDIRIGE SUR LA BONNE PAGE
+	dispatch_post('/verifUser'				, 'verif_user');
+	//VERIFIE INFO UTILISATEUR ET REDIRIGE SUR LA BONNE PAGE
 
-	dispatch('/fonction'					, 'bdd_fonction');	//INTERFACE ELEVE: GET => liste des fichiers POST => sauvegarder les informations de l'utilisateur
+	dispatch('/fonction'					, 'bdd_fonction');
+	//INTERFACE ELEVE: GET => liste des fichiers POST => sauvegarder les informations de l'utilisateur
 	dispatch_post('/fonction'				, 'bdd_fonction');	
 /*
 ========================================================================
@@ -38,7 +41,8 @@ PAGES POUR LES PROFESSEURS
 	dispatch('/administration_panel'		, 'adm_panel');
 	dispatch('/administration_data'			, 'adm_data' );
 	
-	dispatch('/fonction_data/:action/:id'		, 'fonction_data');
+	dispatch('/fonction_data/:action/:id'	, 'fonction_data');
+	dispatch('/fonction_file/:action'		, 'fonction_file');
 
 	run();
 ?>
