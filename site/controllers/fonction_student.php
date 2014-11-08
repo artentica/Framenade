@@ -1,12 +1,12 @@
 <?php
 	//session_start();
 	//require_once("bdd.php");
-	
+
 	function bdd_fonction()
 	{
 		header('charset=utf-8');
 
-		switch ($_GET['action']) 
+		switch ($_GET['action'])
 		{
 			case 'promos':
 				echo DBListe_promo();
@@ -35,7 +35,7 @@
 		$reponse = array();
 		connect();
 		$temp = DBQuery("SELECT libelle, id FROM promo");
-		/*foreach ($temp as $key => $value) 
+		/*foreach ($temp as $key => $value)
 		{
 			array_push( $reponse, $value[0]);
 		}*/
@@ -48,11 +48,11 @@
 	{
 		$reponse = array();
 		connect();
-		$temp = DBQuery("SELECT * from document 
-		                 WHERE promo='$promo' 
-		                 	OR promo=( SELECT id FROM promo WHERE libelle='All' ) 
+		$temp = DBQuery("SELECT * from document
+		                 WHERE promo='$promo'
+		                 	OR promo=( SELECT id FROM promo WHERE libelle='All' )
 		                 ORDER BY promo DESC, rang ASC");
-		foreach ($temp as $key => $value) 
+		foreach ($temp as $key => $value)
 		{
 			array_push( $reponse, $value);
 		}
@@ -84,8 +84,8 @@
 			{
 				$content = ("L'utilisateur a bien été créer ".identifiant);
 				DBInsert("INSERT INTO data (
-				        identifiant, nom_fils, prenom_fils, ddn_fils, tel_mobile, courriel, date, ip) 
-						VALUES 
+				        identifiant, nom_fils, prenom_fils, ddn_fils, tel_mobile, courriel, date, ip)
+						VALUES
 						('". identifiant ."', '". nom_fils ."', '". prenom_fils ."', '".
 				        ddn_fils ."', '". tel ."', '". courriel ."', '". dateI ."', '". ip ."')");
 			}
@@ -99,7 +99,7 @@
 								tel_mobile='".		tel."',
 								courriel='".		courriel."',
 								date='".			dateI."',
-								ip='".				ip."' 
+								ip='".				ip."'
 								WHERE identifiant='". identifiant ."'" ))
 				{
 					$alertType 	= "danger";
@@ -122,14 +122,14 @@
 	{
 		$id 			= $_GET['promo'];
 		//$zipLibelle 	= DBQuery("SELECT libelle FROM promo WHERE id='" . $id . "'" )[0][0] . ".zip";
-		$zipLibelle 	= 'zip/documents_' . $id . '.zip'; 
+		$zipLibelle 	= 'zip/documents_' . $id . '.zip';
 		//LIBELLE DE LA PROMO EN FONCTION DE SON ID
 		$files 			= DBQuery('SELECT fichier FROM document WHERE promo=18 OR promo=' . $id);
 		$zip 			= new ZipArchive();
 
 		//print_r($files);
 
-		if ($zip->open( $zipLibelle, ZipArchive::CREATE)!==TRUE) 
+		if ($zip->open( $zipLibelle, ZipArchive::CREATE)!==TRUE)
 		{
 		    exit("Impossible d'ouvrir le fichier <$zipLibelle>\n");
 		}
@@ -153,10 +153,10 @@
 		    header("Content-Transfer-Encoding: binary");
 		    header('Pragma: public');
 		} else {
-		    
+
 		    header("Content-Transfer-Encoding: binary");
 		    header('Pragma: no-cache');
-		    
+
 		}
 		readfile( $zipLibelle );
 	}

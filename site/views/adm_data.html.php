@@ -30,6 +30,8 @@
 	  </table>
 	</div>
 </div>
+<div id="lightbox" class="col-sm-6 col-sm-offset-3">
+</div>
 <?php end_content_for() ?>
 <?php content_for('js_foot'); ?>
 	<script type="text/javascript" src="js/adm_data.js"></script>

@@ -25,7 +25,8 @@ $( document ).ready( function()
 	/*
 				ACTIONS DE GESTION
 	*/
-	$("body").on("click", ".remove", function(e){
+	$("body").on("click", ".remove", function(e)
+	{
 		val = $(this).val();
 		console.log('remove ' + val);
 		$.ajax(
@@ -44,7 +45,10 @@ $( document ).ready( function()
 			alert('Impossible de joindre le serveur pour effectuer cette action...');
 		});
 	});
-
+	$("body").on("click", ".edit", function(e)
+	{
+		$('#lightbox').addClass('animated rollIn');
+	});
 	/*
 				CHARGEMENT DES DONNEES
 	*/
@@ -78,7 +82,8 @@ $( document ).ready( function()
 					+ '<a target="_TOP" href="http://www.localiser-ip.com/?ip=' + etudiant['ip'] + '">' + etudiant['ip'] +'</a>'
 					+ '</td><td>'
 					/*	ACTION POSSIBLE POUR L ETUDIANT	*/
-					+ '<button class="remove btn btn-danger btn-sm" value="'+ etudiant['id'] +'"><span class="glyphicon glyphicon-trash"></span></button>'
+					+ '<button class="remove btn btn-danger btn-sm" value="'+ etudiant['id'] +'" ><span class="glyphicon glyphicon-trash"></span></button>'
+					+ '<button class="edit btn btn-primary btn-sm"  value="'+ etudiant['id'] +'" ><span class="glyphicon glyphicon-pencil"></span></button>'
 					+ '</td></tr>';
 			});
 			$('#table_data').html( Str ); // REMPLI LE TABLEAU

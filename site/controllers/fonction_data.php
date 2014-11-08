@@ -26,7 +26,7 @@
 		connect();
 		if( DBInsert('DELETE FROM data WHERE id=' . $id) == 1 )// ca a marcher
 		{
-			$content = "Les données de l'étudiant ont bien été supprimer.";
+			$content = "Les données de l'étudiant ont bien été supprimées.";
 			$style   = "success";
 		}
 		else
