@@ -28,6 +28,8 @@
 				break;
 		}
 	}
+
+
 	function DBListe_promo()
 	{
 		$reponse = array();
@@ -40,6 +42,8 @@
 
 		return json_encode( $temp );
 	}
+
+
 	function DBListe_files( $promo )
 	{
 		$reponse = array();
@@ -54,6 +58,8 @@
 		}
 		return json_encode( $reponse );
 	}
+
+
 	function save_data()
 	{
 		if ( 	!empty($_POST['nom_fils'])	// SI LE FORMULAIRE EST BIEN REMPLI
@@ -74,7 +80,7 @@
 			define('ip', 			$_SERVER['REMOTE_ADDR']);
 
 			connect();
-			if( DBQuery("SELECT id FROM data WHERE identifiant='" . identifiant . "'") )
+			if( !DBQuery("SELECT id FROM data WHERE identifiant='" . identifiant . "'") )
 			{
 				$content = ("L'utilisateur a bien été créer ".identifiant);
 				DBInsert("INSERT INTO data (
@@ -110,6 +116,8 @@
 				'. $content .'
 			</div>');
 	}
+
+
 	function zipping()
 	{
 		$id 			= $_GET['promo'];

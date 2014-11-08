@@ -38,7 +38,7 @@ PAGES POUR LES PROFESSEURS
 	dispatch('/administration_panel'		, 'adm_panel');
 	dispatch('/administration_data'			, 'adm_data' );
 	
-	dispatch('/fonction_data/:action'		, 'fonction_data');
+	dispatch('/fonction_data/:action/:id'		, 'fonction_data');
 
 	run();
 ?>
