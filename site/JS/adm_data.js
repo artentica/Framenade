@@ -1,30 +1,33 @@
 $( document ).ready( function()
 {
 	load_data();
-	/*
+	$('#lightbox').hide();
+/*===============================================================================
 				MOTEUR DU CHAMPS DE RECHERCHE PAR NOM
-	*/
-	$("#search_nom").on("keyup", function() {
+===============================================================================*/
+	$("#search_nom").on("keyup", function()
+	{
 		var value = $(this).val();
 		//console.log(value);
-		$("#table_data tr").each(function(index) {
-
+		$("#table_data tr").each(function(index)
+		{
 			$row = $(this);
-
 			var id = $row.find("td:first").text();
 
-			if (id.indexOf(value) != 0) {
+			if (id.indexOf(value) != 0)
+			{
 				$(this).hide();
 			}
-			else {
+			else
+			{
 				$(this).show();
 			}
 		});
 	});
 
-	/*
+/*===============================================================================
 				ACTIONS DE GESTION
-	*/
+===============================================================================*/
 	$("body").on("click", ".remove", function(e)
 	{
 		val = $(this).val();
@@ -45,13 +48,43 @@ $( document ).ready( function()
 			alert('Impossible de joindre le serveur pour effectuer cette action...');
 		});
 	});
+
 	$("body").on("click", ".edit", function(e)
 	{
-		$('#lightbox').addClass('animated rollIn');
+		var LB 		= $('#lightbox');
+		var info	= $(this);
+		LB.show();
+		LB.addClass('animated rollIn');
+
+		$.ajax(
+		{
+			url: 		'index.php/fonction_data/userInfo/' + info.val() ,
+			type: 		'GET',
+			dataType: 	'json',
+		})
+		.done(function( data )
+		{
+			etudiant = data[0];
+			console.log( etudiant );
+			$('#nom_fils').val( etudiant['nom_fils'] );
+			$('#prenom_fils').val( etudiant['prenom_fils'] );
+			$('#identifiant').val( etudiant['identifiant'] );
+			$('#tel_mobile').val( etudiant['tel_mobile'] );
+			$('#courriel').val( etudiant['courriel'] );
+			$('#ddn_fils').val( etudiant['ddn_fils'] );
+		});
 	});
-	/*
+
+	$('#save').click( function(e){ e.preventDefault() ;alert('OK'); });
+
+	$("#cancel").click( function(e)
+	{
+		e.preventDefault();
+		$('#lightbox').fadeOut(500);
+	});
+/*===============================================================================
 				CHARGEMENT DES DONNEES
-	*/
+===============================================================================*/
 	function load_data()
 	{
 		$.ajax(

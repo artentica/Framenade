@@ -31,6 +31,74 @@
 	</div>
 </div>
 <div id="lightbox" class="col-sm-6 col-sm-offset-3">
+	<form class="form-horizontal" action="#">
+		<fieldset>
+			<!-- Form Name -->
+			<legend>Modification des données de l'étudiant</legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-5 control-label" for="nom_fils">Nom:</label>
+			  <div class="col-md-5">
+			  <input id="nom_fils" name="nom_fils" type="text" placeholder="" class="form-control input-md" required="">
+
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-5 control-label" for="prenom_fils">Prénom:</label>
+			  <div class="col-md-5">
+			  <input id="prenom_fils" name="prenom_fils" type="text" placeholder="" class="form-control input-md" required="">
+
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-5 control-label" for="identifiant">Identifiant</label>
+			  <div class="col-md-5">
+			  <input id="identifiant" name="identifiant" type="text" placeholder="" class="form-control input-md" required="">
+
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-5 control-label" for="tel_mobile">Téléphone:</label>
+			  <div class="col-md-5">
+			  <input id="tel_mobile" name="tel_mobile" type="text" placeholder="" class="form-control input-md" required="">
+
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-5 control-label" for="courriel">E-mail</label>
+			  <div class="col-md-5">
+			  <input id="courriel" name="courriel" type="text" placeholder="" class="form-control input-md" required="">
+
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-5 control-label" for="ddn_fils">Date de naissance</label>
+			  <div class="col-md-5">
+			  <input id="ddn_fils" name="ddn_fils" type="text" placeholder="" class="form-control input-md" required="">
+			  <span class="help-block">Format: "AAAA-MM-JJ"</span>
+			  </div>
+			</div>
+
+			<!-- Button (Double) -->
+			<div class="form-group">
+			  <div class="col-md-6 col-md-offset-4">
+				<button id="save"   class="btn btn-success">Enregistrer</button>
+				<button id="cancel" class="btn btn-danger">Annuler</button>
+			  </div>
+			</div>
+		</fieldset>
+		</form>
 </div>
 <?php end_content_for() ?>
 <?php content_for('js_foot'); ?>

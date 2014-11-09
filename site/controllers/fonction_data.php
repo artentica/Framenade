@@ -12,15 +12,18 @@
 			case 'remove':
 				echo remove($id);
 				break;
+			case 'userInfo':
+				echo userInfo($id);
+				break;
 		}
 	}
+//   JSON DE TOUTES LES VALEURS
 	function list_data()
 	{
 		connect();
-		$temp = DBQuery('SELECT * FROM data ORDER BY nom_fils');
-
-		return json_encode( $temp );
+		return json_encode( DBQuery('SELECT * FROM data ORDER BY nom_fils') );
 	}
+//   SUPPRIME UN ENREGISTREMENT
 	function remove($id)
 	{
 		connect();
@@ -40,5 +43,11 @@
 			  			<span class="sr-only">Close</span>
 					</button>'. $content .'
 				</div>';
+	}
+//  RECUPERE LES INFOS D UN UTILISATEUR
+	function userInfo($id)
+	{
+		connect();
+		return json_encode( DBQuery('SELECT * FROM data WHERE id=' . $id ) );
 	}
 ?>
