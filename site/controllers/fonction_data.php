@@ -15,14 +15,21 @@
 			case 'userInfo':
 				echo userInfo($id);
 				break;
+			case 'edition':
+				echo edition();
+				break;
 		}
 	}
+
+
 //   JSON DE TOUTES LES VALEURS
 	function list_data()
 	{
 		connect();
 		return json_encode( DBQuery('SELECT * FROM data ORDER BY nom_fils') );
 	}
+
+
 //   SUPPRIME UN ENREGISTREMENT
 	function remove($id)
 	{
@@ -44,10 +51,19 @@
 					</button>'. $content .'
 				</div>';
 	}
+
+
 //  RECUPERE LES INFOS D UN UTILISATEUR
 	function userInfo($id)
 	{
 		connect();
 		return json_encode( DBQuery('SELECT * FROM data WHERE id=' . $id ) );
+	}
+
+//  MODIFIE LES DONNEES RENTREES
+	function edition()
+	{
+		$temp = json_encode (print_r($_POST) );
+		return $temp;
 	}
 ?>

@@ -32,6 +32,7 @@
 </div>
 <div id="lightbox" class="col-sm-6 col-sm-offset-3">
 	<form class="form-horizontal" action="#">
+		<input id="id" type="hidden" name="id" value="">
 		<fieldset>
 			<!-- Form Name -->
 			<legend>Modification des données de l'étudiant</legend>

@@ -66,6 +66,7 @@ $( document ).ready( function()
 		{
 			etudiant = data[0];
 			console.log( etudiant );
+			$('#id').val( etudiant['id'] );
 			$('#nom_fils').val( etudiant['nom_fils'] );
 			$('#prenom_fils').val( etudiant['prenom_fils'] );
 			$('#identifiant').val( etudiant['identifiant'] );
@@ -75,8 +76,28 @@ $( document ).ready( function()
 		});
 	});
 
-	$('#save').click( function(e){ e.preventDefault() ;alert('OK'); });
+	$('#save').click( function(e)
+	{
+		e.preventDefault();
+		var $this = $("#lightbox form"); // L'objet jQuery du formulaire
+		console.log( 'AAAAA' + $this.serialize());
+		$.ajax(
+		{
+			url: 		'index.php/fonction_data/edition',
+			type: 		'POST',
+			dataType: 	'html',
+			data:		$this.serialize(),
+		})
+		.done( function( data )
+		{
+			$('#notification').html( data );
+			$('#cancel').click();
+		})
+		.fail( function( e, t )
+		{
 
+		});
+	});
 	$("#cancel").click( function(e)
 	{
 		e.preventDefault();

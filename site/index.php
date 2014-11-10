@@ -36,13 +36,14 @@ PAGES POUR LES ETUDIANTS
 PAGES POUR LES PROFESSEURS
 ========================================================================
 */
-	dispatch_post('/administration_panel'	, 'adm_panel');
-	dispatch('/administration_accueil'		, 'adm_accueil');
-	dispatch('/administration_panel'		, 'adm_panel');
-	dispatch('/administration_data'			, 'adm_data' );
+	dispatch_post('/administration_panel'		, 'adm_panel');
+	dispatch('/administration_accueil'			, 'adm_accueil');
+	dispatch('/administration_panel'			, 'adm_panel');
+	dispatch('/administration_data'				, 'adm_data' );
 	
-	dispatch('/fonction_data/:action/:id'	, 'fonction_data');
-	dispatch('/fonction_file/:action'		, 'fonction_file');
+	dispatch('/fonction_data/:action/:id'		, 'fonction_data');
+	dispatch_post('/fonction_data/:action/:id'	, 'fonction_data');
+	dispatch('/fonction_file/:action'			, 'fonction_file');
 
 	run();
 ?>
