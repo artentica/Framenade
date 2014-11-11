@@ -11,7 +11,7 @@
 		  <label for="search">Recherche par nom:</label>
 		  <input type="text" name="search" id="search_nom" />
 	  </div>
-	  <div id="notification" class="col-sm-6 col-sm-offset-3"></div>
+	  <div id="notification" class="col-sm-8 col-sm-offset-2"></div>
 	  <!-- Table -->
 	  <table class="table">
 		  <thead>
@@ -35,62 +35,50 @@
 		<input id="id" type="hidden" name="id" value="">
 		<fieldset>
 			<!-- Form Name -->
-			<legend>Modification des données de l'étudiant</legend>
-
+			<legend><h3>Modification des données de l'étudiant</h3></legend>
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-5 control-label" for="nom_fils">Nom:</label>
-			  <div class="col-md-5">
-			  <input id="nom_fils" name="nom_fils" type="text" placeholder="" class="form-control input-md" required="">
-
-			  </div>
+				<label class="col-md-5 control-label" for="nom_fils">Nom:</label>
+			  	<div class="col-md-5">
+			  		<input id="nom_fils" name="nom_fils" type="text" class="form-control input-md" required="">
+			  	</div>
 			</div>
-
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-5 control-label" for="prenom_fils">Prénom:</label>
-			  <div class="col-md-5">
-			  <input id="prenom_fils" name="prenom_fils" type="text" placeholder="" class="form-control input-md" required="">
-
-			  </div>
+			  	<label class="col-md-5 control-label" for="prenom_fils">Prénom:</label>
+			  	<div class="col-md-5">
+			  		<input id="prenom_fils" name="prenom_fils" type="text" class="form-control input-md" required="">
+			  	</div>
 			</div>
-
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-5 control-label" for="identifiant">Identifiant</label>
-			  <div class="col-md-5">
-			  <input id="identifiant" name="identifiant" type="text" placeholder="" class="form-control input-md" required="">
-
-			  </div>
+				<label class="col-md-5 control-label" for="identifiant">Identifiant</label>
+			  	<div class="col-md-5">
+			  		<input id="identifiant" name="identifiant" type="text" class="form-control input-md" required="">
+			  	</div>
 			</div>
-
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-5 control-label" for="tel_mobile">Téléphone:</label>
-			  <div class="col-md-5">
-			  <input id="tel_mobile" name="tel_mobile" type="text" placeholder="" class="form-control input-md" required="">
-
-			  </div>
+				<label class="col-md-5 control-label" for="tel_mobile">Téléphone:</label>
+			  	<div class="col-md-5">
+			  		<input id="tel_mobile" name="tel_mobile" type="text" class="form-control input-md" required="">
+			  	</div>
 			</div>
-
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-5 control-label" for="courriel">E-mail</label>
-			  <div class="col-md-5">
-			  <input id="courriel" name="courriel" type="text" placeholder="" class="form-control input-md" required="">
-
-			  </div>
+				<label class="col-md-5 control-label" for="courriel">E-mail</label>
+			 	<div class="col-md-5">
+			  		<input id="courriel" name="courriel" type="text" class="form-control input-md" required="">
+			  	</div>
 			</div>
-
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-5 control-label" for="ddn_fils">Date de naissance</label>
-			  <div class="col-md-5">
-			  <input id="ddn_fils" name="ddn_fils" type="text" placeholder="" class="form-control input-md" required="">
-			  <span class="help-block">Format: "AAAA-MM-JJ"</span>
+				<label class="col-md-5 control-label" for="ddn_fils">Date de naissance</label>
+				<div class="col-md-5">
+			  		<input id="ddn_fils" name="ddn_fils" type="text" class="form-control input-md" required="">
+			  		<span class="help-block">Format: "AAAA-MM-JJ"</span>
 			  </div>
 			</div>
-
 			<!-- Button (Double) -->
 			<div class="form-group">
 			  <div class="col-md-6 col-md-offset-4">

@@ -1,6 +1,4 @@
 <?php
-		//require_once('config.php');
-    	$reponse = array();
 
 		function connect()
 		{
@@ -20,9 +18,9 @@
 	        // Catch any errors
 	        catch(PDOException $e)
 	        {
-	        	$log = fopen('../LOGFILE.txt', 'a+');
+	        	$log = fopen('logs/LOGFILE.txt', 'a+');
 
-				ftruncate( $log, 0);
+				//sftruncate( $log, 0);
 
 				fwrite( $log, $e->getMessage()  );
 
@@ -37,8 +35,9 @@
 		{
 			if (connect())
 			{
-	    		$temp 		= $GLOBALS['db']->query( $str );
-	    		$reponse 	= $temp->fetchAll();
+	    		$statement 	= $GLOBALS['db']->query( $str );
+	    		$reponse 	= $statement->fetchAll();
+				$statement->closeCursor();
 	    		return $reponse;
 	    	}
 	    	return false;
@@ -47,8 +46,7 @@
 		{
 			if (connect())
 			{
-	    		$temp 		= $GLOBALS['db']->exec( $str );
-	    		return $temp;
+	    		return $GLOBALS['db']->exec( $str );
 	    	}
 	    	return false;
 		}

@@ -46,6 +46,7 @@ $( document ).ready( function()
 		.fail( function( e, t)
 		{
 			alert('Impossible de joindre le serveur pour effectuer cette action...');
+			console.log( e + t );
 		});
 	});
 
@@ -65,7 +66,7 @@ $( document ).ready( function()
 		.done(function( data )
 		{
 			etudiant = data[0];
-			console.log( etudiant );
+			//console.log( etudiant );
 			$('#id').val( etudiant['id'] );
 			$('#nom_fils').val( etudiant['nom_fils'] );
 			$('#prenom_fils').val( etudiant['prenom_fils'] );
@@ -73,14 +74,21 @@ $( document ).ready( function()
 			$('#tel_mobile').val( etudiant['tel_mobile'] );
 			$('#courriel').val( etudiant['courriel'] );
 			$('#ddn_fils').val( etudiant['ddn_fils'] );
+		}).fail( function( e, t)
+		{
+			alert('Impossible de recuperer les informations...');
+			console.log( e + t );
 		});
 	});
 
+	/**
+	 * ACTION POUR SAUVEGARDER LES DONNEES MODIFIEES
+	 * @param {[[Type]]} e Evenement
+	 */
 	$('#save').click( function(e)
 	{
 		e.preventDefault();
 		var $this = $("#lightbox form"); // L'objet jQuery du formulaire
-		console.log( 'AAAAA' + $this.serialize());
 		$.ajax(
 		{
 			url: 		'index.php/fonction_data/edition',
@@ -91,11 +99,13 @@ $( document ).ready( function()
 		.done( function( data )
 		{
 			$('#notification').html( data );
+			load_data();
 			$('#cancel').click();
 		})
 		.fail( function( e, t )
 		{
-
+			alert('Impossible d\'effectuer l\'action.');
+			console.log(e + t);
 		});
 	});
 	$("#cancel").click( function(e)
@@ -106,6 +116,9 @@ $( document ).ready( function()
 /*===============================================================================
 				CHARGEMENT DES DONNEES
 ===============================================================================*/
+	/**
+	 * PERMET DE RECUPERER L INTEGRALITEE DES DONNEES RENTREES
+	 */
 	function load_data()
 	{
 		$.ajax(
