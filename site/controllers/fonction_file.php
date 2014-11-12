@@ -4,15 +4,33 @@
 	 */
 	function fonction_file()
 	{
+		is_log();
 		$action = params('action');
 		$id		= params('id');
 
-		switch ($action)
+		echo $action( $id );
+		/*switch ($action)
 		{
+			case 'add_promo':
+				echo add_promo($id);
+				break;
+			case 'remove_promo':
+				echo remove_promo($id);
+				break;
 			case 'edit_promo':
 				echo edit_promo($id);
 				break;
-		}
+			case 'edit_promo':
+				echo edit_promo($id);
+				break;
+			case 'edit_promo':
+				echo edit_promo($id);
+				break;
+			case 'edit_promo':
+				echo edit_promo($id);
+				break;
+
+		}*/
 	}
 
 /*=====================================================================
@@ -20,12 +38,21 @@
 =====================================================================*/
 
 	/**
-	 * MODIFIE LE NOM DE LA PROMO
-	 * @param Number $id ID de la promo a modifier
+	 * AJOUTE UNE PROMO A LA LISTE DES PROMOS
+	 * @$_POST	promo_name
 	 */
-	function edit_promo($id)
+	function add_promo()
 	{
+		$style 		= 'danger';
+		$content 	= 'Impossible de créer cette promotion.';
 
+		if( !empty($_POST['promo_name'] )
+		   	&& DBInsert('INSERT INTO document (libelle) VALUES `' . $_POST['promo_name'] . '`') )
+		{
+			$style 		= 'success';
+			$content 	= 'La promotion ' . $_POST['promo_name'] . ' à bien été créée.';
+		}
+		return notif( $style, $content );
 	}
 	/**
 	 * SUPPRIME LA PROMO SPECIFIEE
@@ -33,13 +60,21 @@
 	 */
 	function remove_promo($id)
 	{
+		$style 		= 'danger';
+		$content 	= 'Impossible de supprimer cette promotion.';
 
+		if( DBInsert("DELETE FROM promo WHERE id=$id "))
+		{
+			$style 		= 'success';
+			$content 	= 'La promotion à bien été supprimé.';
+		}
+		return notif( $style, $content );
 	}
 	/**
-	 * AJOUTE UNE PROMO A LA LISTE DES PROMOS
-	 * @$_POST	promo_name
+	 * MODIFIE LE NOM DE LA PROMO
+	 * @param Number $id ID de la promo a modifier
 	 */
-	function add_promo()
+	function edit_promo($id)
 	{
 
 	}
@@ -57,7 +92,11 @@
 	{
 
 	}
-	function change_rang()
+	function change_rang($id)//id de la promo
+	{
+
+	}
+	function change_name($id)//id du fichier
 	{
 
 	}

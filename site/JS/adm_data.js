@@ -147,18 +147,27 @@ $( document ).ready( function()
 					+ '</td><td>'
 					+ etudiant['identifiant']
 					+ '</td><td>'
-					+ '<a href="tel:' + etudiant['tel_mobile'] + '">' + etudiant['tel_mobile'] + '</a>'
+					+ '<a href="tel:' + etudiant['tel_mobile'] + '">'
+					+ etudiant['tel_mobile']
+					+ '</a>'
 					+ '</td><td>'
-					+ '<a href="mailto:' + etudiant['courriel']	+ '">' + etudiant['courriel']
+					+ '<a href="mailto:' + etudiant['courriel']	+ '">'
+					+ etudiant['courriel']
 					+ '</a>'
 					+ '</td><td>'
 					+ etudiant['ddn_fils']
 					+ '</td><td>'
-					+ '<a target="_TOP" href="http://www.localiser-ip.com/?ip=' + etudiant['ip'] + '">' + etudiant['ip'] +'</a>'
+					+ '<a target="_TOP" href="http://www.localiser-ip.com/?ip='	+ etudiant['ip'] + '">'
+					+ etudiant['ip']
+					+'</a>'
 					+ '</td><td>'
 					/*	ACTION POSSIBLE POUR L ETUDIANT	*/
-					+ '<button class="remove btn btn-danger btn-sm" value="'+ etudiant['id'] +'" ><span class="glyphicon glyphicon-trash"></span></button>'
-					+ '<button class="edit btn btn-primary btn-sm"  value="'+ etudiant['id'] +'" ><span class="glyphicon glyphicon-pencil"></span></button>'
+					+ '<button class="remove btn btn-danger btn-sm" value="'
+					+ etudiant['id']
+					+'" ><span class="glyphicon glyphicon-trash"></span></button>'
+					+ '<button class="edit btn btn-primary btn-sm"  value="'
+					+ etudiant['id']
+					+'" ><span class="glyphicon glyphicon-pencil"></span></button>'
 					+ '</td></tr>';
 			});
 			$('#table_data').html( Str ); // REMPLI LE TABLEAU

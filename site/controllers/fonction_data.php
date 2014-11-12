@@ -4,10 +4,14 @@
 	 */
 	function fonction_data()
 	{
+		is_log();
 		$action = params('action');
 		$id		= intVal(params('id'));
 		
-		switch ( $action ) 
+		echo $action( $id );
+
+
+		/*switch ( $action )
 		{
 			case 'list_data':
 				echo list_data();
@@ -21,7 +25,7 @@
 			case 'edition':
 				echo edition();
 				break;
-		}
+		}*/
 	}
 
 	/**
@@ -52,12 +56,7 @@
 			$content = "Impossible de supprimer les données, contactez l'administrateur.";
 			$style   = "danger";
 		}
-		return '<div class="alert alert-' . $style . ' alert-dismissible" role="alert">
-			  		<button type="button" class="close" data-dismiss="alert">
-						<span aria-hidden="true">&times;</span>
-			  			<span class="sr-only">Close</span>
-					</button>'. $content .'
-				</div>';
+		return notif( $style, $content );
 	}
 
 
@@ -110,12 +109,7 @@
 				$content = "Impossible de mettre a jour les données (ou aucune donnée n'a été modifiée).";
 			}
 		}
-		return '<div class="alert alert-' . $style . ' alert-dismissible" role="alert">
-			  		<button type="button" class="close" data-dismiss="alert">
-						<span aria-hidden="true">&times;</span>
-			  			<span class="sr-only">Close</span>
-					</button>'. $content .'
-				</div>';
+		return notif( $style, $content );
 		//return $temp;
 	}
 ?>
