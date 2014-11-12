@@ -28,6 +28,9 @@ $( document ).ready( function()
 /*===============================================================================
 				ACTIONS DE GESTION
 ===============================================================================*/
+	/**
+	 * ACTION LORS DE L APPUIE SUR LA CORBEILLE
+	 */
 	$("body").on("click", ".remove", function(e)
 	{
 		val = $(this).val();
@@ -50,12 +53,14 @@ $( document ).ready( function()
 		});
 	});
 
+	/**
+	 * ACTION LORS DU CLIC SUR EDITION, OUVRE LA LIGHTBOX
+	 */
 	$("body").on("click", ".edit", function(e)
 	{
 		var LB 		= $('#lightbox');
 		var info	= $(this);
 		LB.show();
-		LB.addClass('animated rollIn');
 
 		$.ajax(
 		{
@@ -74,16 +79,17 @@ $( document ).ready( function()
 			$('#tel_mobile').val( etudiant['tel_mobile'] );
 			$('#courriel').val( etudiant['courriel'] );
 			$('#ddn_fils').val( etudiant['ddn_fils'] );
+			LB.addClass('animated rollIn');
 		}).fail( function( e, t)
 		{
 			alert('Impossible de recuperer les informations...');
 			console.log( e + t );
+			LB.hide();
 		});
 	});
 
 	/**
 	 * ACTION POUR SAUVEGARDER LES DONNEES MODIFIEES
-	 * @param {[[Type]]} e Evenement
 	 */
 	$('#save').click( function(e)
 	{
@@ -111,7 +117,9 @@ $( document ).ready( function()
 	$("#cancel").click( function(e)
 	{
 		e.preventDefault();
-		$('#lightbox').fadeOut(500);
+		var LB = $('#lightbox');
+		LB.hide(700);
+		LB.removeClass('rollIn');
 	});
 /*===============================================================================
 				CHARGEMENT DES DONNEES
