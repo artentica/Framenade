@@ -9,24 +9,11 @@
 		$id		= intVal(params('id'));
 		
 		echo $action( $id );
-
-
-		/*switch ( $action )
-		{
-			case 'list_data':
-				echo list_data();
-				break;
-			case 'remove':
-				echo remove($id);
-				break;
-			case 'userInfo':
-				echo userInfo($id);
-				break;
-			case 'edition':
-				echo edition();
-				break;
-		}*/
 	}
+
+/*=====================================================================
+				GESTION DES DONNEES
+=====================================================================*/
 
 	/**
  	* JSON DE TOUTES LES VALEURS
