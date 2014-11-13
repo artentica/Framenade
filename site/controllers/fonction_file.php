@@ -17,7 +17,7 @@
 
 	/**
 	 * RENVOI SOUS FORMAT JSON TOUTE LES PROMOS
-	 * @returns [[Type]] [[Description]]
+	 * @returns Object JSON de la liste des promos
 	 */
 	function list_promo()
 	{
@@ -27,8 +27,8 @@
 
 	/**
 	 * RENVOI TOUTS LES DOCUMENTS SPECIFIQUES A UNE PROMO
-	 * @param   [[Type]] $id [[Description]]
-	 * @returns [[Type]] [[Description]]
+	 * @param   Number   $id Numero de la promo
+	 * @returns Object Json de la liste des fichiers pour la promo
 	 */
 	function list_promo_files( $id )
 	{
@@ -38,7 +38,7 @@
 
 	/**
 	 * AJOUTE UNE PROMO A LA LISTE DES PROMOS
-	 * @$_POST	promo_name
+	 * @returns String HTML de la notification
 	 */
 	function add_promo()
 	{
@@ -57,7 +57,8 @@
 
 	/**
 	 * SUPPRIME LA PROMO SPECIFIEE
-	 * @param [[Type]] $id ID de la promo a supprimer
+	 * @param Number $id ID de la promo a supprimer
+	 * @returns String HTML de la notif
 	 */
 	function remove_promo($id)
 	{
@@ -104,9 +105,9 @@
 		   && 	!empty($_POST['promo'])
 		   &&	!empty($_POST['libelle'])  )
 		{
-			$file 		= $_FILES['fichier'];
-		   	$promo 		= $_POST['promo'];
-		   	$libelle 	= $_POST['libelle'];
+			$file 			= $_FILES['fichier'];
+		   	$promo 			= $_POST['promo'];
+		   	$libelle 		= $_POST['libelle'];
 
 			$dossier 		= 'pdf/';
 			$fichier 		= basename($file['name']);
@@ -119,24 +120,28 @@
 			//Début des vérifications de sécurité...
 			if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 			{
-				 $content = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
+				 $content = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg ou pdf...';
 			}
-			if($taille>$taille_maxi)
+			else if($taille>$taille_maxi)
 			{
 				 $content = 'Le fichier est trop gros...';
 			}
-			if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+			else //S'il n'y a pas d'erreur, on upload
 			{
 				 //On formate le nom du fichier ici...
 				 $fichier = strtr($fichier,
 					  'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
 					  'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+
 				 $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-				 if(move_uploaded_file($file['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+
+				//Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+				 if( move_uploaded_file($file['tmp_name'], $dossier . $fichier) )
 				 {
-					$last_id = DBQuery("SELECT rang FROM document WHERE promo=$promo ORDER BY rang DESC");
+					$temp 		= DBQuery("SELECT rang FROM document WHERE promo=$promo ORDER BY rang DESC");
+					$new_id 	= ($temp[0][0]) + 1;
 					if( $DBInsert("INSERT INTO document (rang, promo, libelle, fichier )
-									VALUES (". ($last_id + 1) .", $promo, $libelle, $fichier )"))
+									VALUES ( $new_id , $promo, $libelle, $fichier )"))
 					{
 						$style 		= 'success';
 						$content 	= "Le chichier $libelle à bien été ajouté.";
@@ -151,7 +156,10 @@
 		return notif( $style, $content );
 	}
 
-
+	/**
+	 * SUPPRIME LE FICHIER EN FONCTION DE L ID
+	 * @param Number $id ID du fichier a supprimer
+	 */
 	function remove_file($id)//id file
 	{
 		$style 		= 'danger';
@@ -164,15 +172,43 @@
 		return notif($style, $content);
 	}
 
-
+	/**
+	 * CHANGE LE RANG DE CHACUN DES ELEMENTS D UNE PROMO
+	 * @param Number $id ID de la promo a réorganiser
+	 */
 	function change_rang($id)//id de la promo
 	{
+		if( !empty( $_POST['new_list']) )
+		{
+			foreach( $_POST['new_list'] as $Nid => $file )
+			{
+				if( !DBInsert("UPDATE document SET rang=$Nid WHERE id=$file") )
+				{
+					$content = "Une erreur c'est produite, puvez vous réessayez?";
+					break;
+				}
+				$style 		= 'success';
+				$content 	= "La modification de l'ordre des fichiers est terminée.";
+			}
 
+		}
+		return notif($style, $content );
 	}
 
-
+	/**
+	 * CHANGE LE NOM D UN FICHIER
+	 * @param Number $id ID du fichier à renommer
+	 */
 	function change_name($id)//id du fichier
 	{
+		$style = 'danger';
+		$content = "Impossible de renommer ce fichier";
 
+		if( DBInsert("UPDATE document SET libelle=". $_POST['new_name'] ." WHERE id=$id") )
+		{
+			$style 		= 'success';
+			$content 	= "Le fichier à " . $_POST['new_name'] . " à bien été renommer.";
+		}
+		return notif( $style, $content );
 	}
 ?>
