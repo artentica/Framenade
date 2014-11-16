@@ -1,18 +1,35 @@
 <?php content_for('link'); ?>
 	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+	<!--link rel="stylesheet" href="css/jquery-ui.theme.min.css"-->
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/adm_panel.css">
 <?php end_content_for() ?>
 <?php content_for('body'); ?>
-	<div class="row">
+	<div class="row" id="main-container">
 		<h1 class="col-xs-12 text-center">Gestion des fichiers</h1>
-		<div class="subPanel col-sm-6 text-center">
-			<h4>Gestion des promos</h4>
+		<div id="notification"></div>
 
+		<div class="subPanel col-md-5 text-center">
+			<h4>Gestion des promos</h4><hr>
+			<div class="panel panel-default">
+				<table class="text-left table table-striped table-hover" id="list_promos" >
+
+				</table>
+			</div>
 		</div>
-		<div class="subPanel col-sm-6 text-center">
-			<h4>Gestion des fichiers</h4>
+
+		<div class="subPanel col-md-2 text-center">
+			<h4>Menu</h4><hr>
+			<button class="btn btn-success btn-block">
+				<i class="glyphicon glyphicon-plus-sign"></i> Ajouter une promo
+			</button>
+			<button class="btn btn-inverse btn-block disabled">
+				<i class="glyphicon glyphicon-plus-sign"></i> Ajouter un fichier
+			</button>
+		</div>
+
+		<div class="subPanel col-md-5 text-center">
+			<h4>Gestion des fichiers</h4><hr>
 		</div>
 	</div>
 

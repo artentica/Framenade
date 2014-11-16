@@ -72,14 +72,20 @@ h1
 	background-color: #00498f;
 	color: #799ec1;
 	margin: 0;
+	padding: 10px
 }
 h4
 {
 	color: white;
 }
+#main-container
+{
+	background-image:linear-gradient(to bottom, #00488f, #001c38);
+}
 .subPanel
 {
 	background-image:linear-gradient(to top, #2a2a2a, #111111);
-	border: 1px solid aqua;
+	border: 1px solid grey;
 	border-radius: 15px;
+	min-height: 500px;
 }
