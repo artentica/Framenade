@@ -43,7 +43,8 @@ PAGES POUR LES PROFESSEURS
 	
 	dispatch('/fonction_data/:action/:id'		, 'fonction_data');
 	dispatch_post('/fonction_data/:action/:id'	, 'fonction_data');
-	dispatch('/fonction_file/:action'			, 'fonction_file');
+	dispatch('/fonction_file/:action/:id'		, 'fonction_file');
+	dispatch_post('/fonction_file/:action/:id'	, 'fonction_file');
 
 	run();
 ?>

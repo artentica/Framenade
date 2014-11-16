@@ -7,7 +7,8 @@
 <?php content_for('body'); ?>
 	<div class="row" id="main-container">
 		<h1 class="col-xs-12 text-center">Gestion des fichiers</h1>
-		<div id="notification"></div>
+
+		<div class="col-sm-8 col-sm-offset-2" id="notification"></div>
 
 		<div class="subPanel col-md-5 text-center">
 			<h4>Gestion des promos</h4><hr>
@@ -20,7 +21,7 @@
 
 		<div class="subPanel col-md-2 text-center">
 			<h4>Menu</h4><hr>
-			<button class="btn btn-success btn-block">
+			<button class="btn btn-success btn-block" id="add-promo">
 				<i class="glyphicon glyphicon-plus-sign"></i> Ajouter une promo
 			</button>
 			<button class="btn btn-inverse btn-block disabled">

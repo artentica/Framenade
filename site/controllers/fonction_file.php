@@ -81,9 +81,10 @@
 	function edit_promo($id)
 	{
 		$style 		= 'danger';
-		$content 	= 'Impossible de modifier cette promotion.';
+		$content 	= "Impossible de modifier cette promotion (ou aucune modification n'a été effectuée).";
 
-		if( !empty($_POST['new_name']) && DBInsert('UPDATE promo SET libelle=`' . $_POST['new_name'] . '`') )
+		if( 	!empty($_POST['new_name'])
+		  	&& 	DBInsert( "UPDATE promo SET libelle='" . $_POST['new_name'] . "' WHERE id=$id " ) !=0 )
 		{
 			$style 		= 'success';
 			$content 	= 'Le nom de la promotion est maintenant ' . $_POST['new_name'] . '.';
